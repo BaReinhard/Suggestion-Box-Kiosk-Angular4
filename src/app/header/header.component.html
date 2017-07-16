@@ -1,3 +1,24 @@
-<h3>
-  Angular4 Submission Form
-</h3>
+<nav class="navbar navbar-default navbar-primary navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" (click)="toggleState()" data-toggle="collapse" data-target="#navbar"
+        aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" routerLink="/home">Project name</a>
+    </div>
+    <div (click)="toggleState()" id="navbar" class="navbar-collapse collapse" [ngClass]="{ 'in': !collapsed }">
+      <ul class="nav navbar-nav">
+        <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+        <li><a routerLink="/suggestions" routerLinkActive="active">Admin</a></li>
+
+      </ul>
+
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+</nav>

@@ -1,15 +1,10 @@
-<div class="form-group">
-  <label for="name" >Name</label>
-  <input name="name" [disabled]="disabled" #firstInput type="text" class="form-control"
-  [(ngModel)]="name" />
-  <label for="message">Message</label>
-  <input name="message" [disabled]="disabled" type="text" class="form-control"
-  [(ngModel)]="message" 
-  (keypress)="onEnter($event,firstInput)"/>
-  <button [disabled]="disabled" class="btn btn-primary"
-  (click)="saveSuggestion(firstInput)">Add Suggestion</button>
-  <span *ngIf="loading" class="glyphicon glyphicon-refresh spinning"></span>
-  <div
-  *ngFor="let sugs of suggestions">{{sugs.name + '-' + sugs.message}}</div>
-  <p>{{saveMessage}}</p>
+<h4 class="suggestion-title">
+    Suggestions: </h4>
+<div *ngFor="let sugs of suggestions">
+    <div class="suggestion-card form-group">
+        <label for="name">Name: </label>
+        <p class="suggestion-name" for="name">{{sugs.name}}</p>
+        <label for="message">Message: </label>
+        <p class="suggestion-message">{{sugs.message}}</p>
+    </div>
 </div>

@@ -1,14 +1,18 @@
-.glyphicon.spinning {
-    animation: spin 1s infinite linear;
-    -webkit-animation: spin2 1s infinite linear;
+.suggestion-card {
+	background-color: rgb(230, 230, 230);
+	padding: 10px;
+	border-radius: 10px;
 }
-
-@keyframes spin {
-    from { transform: scale(1) rotate(0deg); }
-    to { transform: scale(1) rotate(360deg); }
+.suggestion-title {
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 20px;
 }
-
-@-webkit-keyframes spin2 {
-    from { -webkit-transform: rotate(0deg); }
-    to { -webkit-transform: rotate(360deg); }
+.suggestion-name {
+	color: black;
+	font-style: italic;
+}
+.suggestion-message {
+	color: black;
+	font-style: italic;
 }

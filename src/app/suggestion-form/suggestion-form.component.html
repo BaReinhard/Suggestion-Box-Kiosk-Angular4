@@ -1,0 +1,15 @@
+<div class="form-group suggestion-container">
+  <h3>Suggestion Box</h3>
+  <div class="form-container">
+    <label for="name">Name</label>
+    <input name="name" [disabled]="disabled" #firstInput type="text" (click)="selectAll(firstInput)" class="form-control" [(ngModel)]="name"
+    />
+    <label for="message">Message</label>
+    <textarea rows="4" cols="50" name="message" id="message" [disabled]="disabled" type="text" class="form-control" [(ngModel)]="message"
+      (keypress)="onEnter($event,firstInput)">
+    </textarea>
+    <button [disabled]="disabled" class="btn btn-primary" (click)="saveSuggestion(firstInput)">Add Suggestion</button>
+    <span *ngIf="loading" id="loader-icon" class="glyphicon glyphicon-refresh spinning"></span>
+    <p>{{saveMessage}}</p>
+  </div>
+</div>

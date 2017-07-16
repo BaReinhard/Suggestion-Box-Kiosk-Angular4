@@ -1,0 +1,7 @@
+.active {
+	background-color: #3e3e3e !important;
+	color: white !important;
+}
+li:hover {
+	background-color: #aaa;
+}
