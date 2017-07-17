@@ -9,6 +9,7 @@ import { SuggestionFormComponent } from './suggestion-form/suggestion-form.compo
 import { SuggestionsPageComponent } from './suggestions-page/suggestions-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 const appRoutes: Routes = [
 	{
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
 		pathMatch: 'full',
 	},
 	{ path: 'home', pathMatch: 'full', component: HomePageComponent },
+	{ path: 'about', pathMatch: 'full', component: AboutPageComponent },
 	{ path: '**', component: PageNotFoundComponent },
 ];
 
@@ -34,6 +36,7 @@ const appRoutes: Routes = [
 		SuggestionsPageComponent,
 		HomePageComponent,
 		PageNotFoundComponent,
+		AboutPageComponent,
 	],
 	imports: [
 		BrowserModule,

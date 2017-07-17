@@ -8,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class SuggestionFormComponent implements OnInit {
 	suggestions = [];
 	name = '(Optional)';
+	email = '(Optional)';
 	message = '';
 	promises = [];
 	saveMessage = '';
 	disabled = false;
 	loading = false;
+	updateMe = false;
 	constructor() {}
 
 	ngOnInit() {}
@@ -23,6 +25,7 @@ export class SuggestionFormComponent implements OnInit {
 	selectAll = el => {
 		el.select();
 	};
+	updateMember = () => {};
 	saveSuggestion = el => {
 		// Disable Inputs
 		this.disableForm();
@@ -33,23 +36,33 @@ export class SuggestionFormComponent implements OnInit {
 				setTimeout(
 					() =>
 						resolve(
-							`Save ${this.name} with message : ${this.message}`,
+							`Save ${this.name} with email of ${this
+								.email} and with message : ${this
+								.message}. The member has indicated they want to ${this
+								.updateMe
+								? 'be updated'
+								: 'not be updated'} on the topic`,
 						),
 					2500,
 				);
 			}).then(response => {
 				this.saveMessage = response.toString();
 				this.name = '';
+				this.email = '';
 				this.message = '';
+				this.updateMe = false;
 			}),
 		);
 		// Wait until API Call Returns
 		Promise.all(this.promises).then(() => {
-			el.focus();
 			this.name = '(Optional)';
-			el.select();
+			this.email = '(Optional)';
+
 			this.disabled = false;
 			this.loading = false;
+			this.updateMe = false;
+			el.focus();
+			el.select();
 		});
 	};
 	// Check for Enter Event, then fire addSuggestion
