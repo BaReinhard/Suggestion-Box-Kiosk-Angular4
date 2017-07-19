@@ -9,6 +9,7 @@ import 'rxjs/add/operator/toPromise';
 	styleUrls: ['./suggestion-list.component.css'],
 })
 export class SuggestionListComponent implements OnInit {
+
 	error: boolean = false;
 	errorMessage: string = '';
 	suggestions: Array<Object> = [];
@@ -68,4 +69,3 @@ export class SuggestionListComponent implements OnInit {
 	deleteSuggestion = (index, el) => {
 		this.suggestions.splice(index, 1);
 	};
-}
