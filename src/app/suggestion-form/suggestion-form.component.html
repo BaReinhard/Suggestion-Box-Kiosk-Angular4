@@ -29,3 +29,8 @@
     <p>{{saveMessage}}</p>
   </div>
 </div>
+<div id="overlay" *ngIf="overlay"></div>
+<div *ngIf="modal" class="modal">
+  <h3 class="modal-title">{{modalTitle}}</h3>
+  <p class="modal-text">{{modalMessage}}</p>
+</div>

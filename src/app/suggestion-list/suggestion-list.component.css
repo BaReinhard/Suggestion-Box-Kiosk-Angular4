@@ -6,6 +6,50 @@
 	margin: 10px auto;
 }
 
+.delete-form {
+	display: block;
+	width: 100%;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: rgba(255, 255, 255, 0.8);
+	position: fixed;
+	z-index: 3;
+	top: 20vh;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+.modal {
+	top: 30%;
+	z-index: 1000;
+	display: block;
+	margin: 0 auto;
+	background-color: rgba(12, 222, 12, .9);
+	padding: 20px;
+	height: 25%;
+	text-align: center;
+	box-sizing: border-box;
+}
+#overlay {
+	position: fixed; /* Sit on top of the page content */
+	/* Hidden by default */
+	width: 100vw; /* Full width (cover the whole page) */
+	height: 100vh; /* Full height (cover the whole page) */
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(
+		0,
+		0,
+		0,
+		0.5
+	); /* Black background with opacity */
+	z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+	cursor: pointer; /* Add a pointer on hover */
+}
 .suggestion-error {
 	display: block;
 	float: none;
@@ -45,6 +89,10 @@
 @media (min-width: 1025px) {
 	.suggestion-card {
 		width: 50%;
+	}
+	.delete-form {
+		width: 50%;
+		margin: 0 auto;
 	}
 } /* big landscape tablets, laptops, and desktops */
 @media (min-width: 1281px) {

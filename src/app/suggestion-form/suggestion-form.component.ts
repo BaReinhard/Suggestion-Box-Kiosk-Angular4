@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Http } from '@angular/http';
+import { SuggestionFormService } from './suggestion-form.service';
 
 @Component({
 	selector: 'app-suggestion-form',
@@ -21,7 +22,14 @@ export class SuggestionFormComponent implements OnInit {
 	disabled: boolean = false;
 	loading: boolean = false;
 	updateMe: boolean = false;
-	constructor(private fb: FormBuilder, private http: Http) {
+	modal: boolean = false;
+	modalMessage: string = '';
+	modalTitle: string = '';
+	overlay: boolean = false;
+	constructor(
+		private fb: FormBuilder,
+		private suggestionService: SuggestionFormService,
+	) {
 		this.suggestionForm = fb.group({
 			name: ['(Optional)', Validators.compose([Validators.required])],
 			message: [
@@ -73,25 +81,7 @@ export class SuggestionFormComponent implements OnInit {
 			this.disableForm();
 			this.loading = true;
 			//Make some API call to NODE to save to Mongo
-			this.promises.push(
-				new Promise(resolve => {
-					setTimeout(
-						() =>
-							resolve(
-								`Save ${form.name} with email of ${form.email} and with message : ${form.message}. The member has indicated they want to ${form.updateMe
-									? 'be updated'
-									: 'not be updated'} on the topic`,
-							),
-						2500,
-					);
-				}).then(response => {
-					this.saveMessage = response.toString();
-					this.loading = false;
-					this.clearForm();
-					el.focus();
-					el.select();
-				}),
-			);
+
 			let newJson = {
 				emailAddress: 'brettreinhard@gmail.com',
 				message: `Suggestion: 
@@ -101,17 +91,42 @@ export class SuggestionFormComponent implements OnInit {
 					Update: ${form.updateMe ? 'Yes' : 'No'}`,
 				name: 'Made from Angular, via TypeScript',
 			};
-			this.promises.push(
-				this.http
-					.post(
-						'https://prod-05.centralus.logic.azure.com:443/workflows/fa37615468aa4ffd9da2ba549e1ce8b8/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=aA49qZ8e59z65oZm152xWL9bn4CRe9vJRLR8bYrezoc',
-						newJson,
-					)
-					.toPromise()
-					.then(response => {
-						console.log(response);
-					}),
+			let formJSON = {
+				name: form.name,
+				email: form.email,
+				update: form.updateMe,
+				message: form.message,
+			};
+			this.suggestionService.saveSuggestion(formJSON).subscribe(
+				response => {
+					this.saveMessage = response.toString();
+					this.loading = false;
+					this.clearForm();
+					el.focus();
+					el.select();
+					this.modal = this.overlay = true;
+					this.modalTitle = 'Success!';
+					this.modalMessage = `${formJSON.name}, your suggestion has been submitted`;
+					setTimeout(() => {
+						this.modal = this.overlay = false;
+					}, 3000);
+				},
+				error => {
+					console.log(error);
+				},
 			);
+
+			// this.promises.push(
+			// 	this.http
+			// 		.post(
+			// 			'https://prod-05.centralus.logic.azure.com:443/workflows/fa37615468aa4ffd9da2ba549e1ce8b8/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=aA49qZ8e59z65oZm152xWL9bn4CRe9vJRLR8bYrezoc',
+			// 			newJson,
+			// 		)
+			// 		.toPromise()
+			// 		.then(response => {
+			// 			console.log(response);
+			// 		}),
+			// );
 		} else {
 			this.touchForm();
 		}

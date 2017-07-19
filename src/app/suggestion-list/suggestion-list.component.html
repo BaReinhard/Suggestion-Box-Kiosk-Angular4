@@ -3,19 +3,19 @@
         Suggestions: </h4>
     <div *ngIf="suggestions.length" class="btn btn-success center" (click)="loadSuggestions()">Refresh</div>
 
-    <div *ngFor="let sugs of suggestions">
+    <div *ngFor="let sugs of suggestions; let i = index">
         <div class="suggestion-card form-group" #thisel>
             <label for="name">Name: </label>
             <p class="suggestion-name" for="name">{{sugs.name}}</p>
             <label for="message">Message: </label>
             <p class="suggestion-message">{{sugs.message}}</p>
             <label for="keepUpdated">Keep Updated:</label>
-            <p class="suggestion-keep-updated">{{sugs.keepUpdated?"Keep Updated":"No"}}</p>
+            <p class="suggestion-keep-updated">{{sugs.update?"Keep Updated":"No"}}</p>
             <label for="email">Email:</label>
             <p class="suggestion-email">{{sugs.email}}</p>
 
-            <div class="btn btn-success">Mark Completed</div>
-            <div class="btn btn-danger" (click)="deleteSuggestion(index,thisel)">Delete</div>
+            <div class="btn btn-success" (click)="showForm(i,sugs.update)">Mark Completed</div>
+            <div class="btn btn-danger" (click)="showForm(i,sugs.update)">Delete</div>
         </div>
     </div>
     <div class="loading center form-group">
@@ -27,4 +27,30 @@
         <div *ngIf="!suggestions.length" class="btn btn-danger center" (click)="loadSuggestions()">Try Again</div>
 
     </div>
+    <div *ngIf="informUser" class="delete-form">
+        <h3>Update the Member</h3>
+        <form [formGroup]="informUserForm" (ngSubmit)="sendEmail(informUserForm.value)" class="suggestion-form-title">
+            <label for="subject">Subject</label>
+            <input name="subject" #subjectInput type="text" (click)="selectAll(subjectInput)" class="form-control" formControlName="subject"
+            />
+            <p *ngIf="!informUserForm.controls['subject'].valid && !informUserForm.disabled" class="error">This field is required</p>
+
+
+            <label class="message" for="message">Message</label>
+            <textarea rows="4" cols="50" name="message" id="message" type="text" class="form-control" formControlName="message" (keypress)="onEnter($event,informUserForm.value)">
+    </textarea>
+            <p *ngIf="!informUserForm.controls['message'].valid && informUserForm.controls['message'].touched &&  !informUserForm.disabled"
+                class="error">This field is required, please enter a suggestion between 10 and 300 characters long.</p>
+
+            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Send Update</button>
+
+            <button (click)="closeForm()" class="btn btn-danger"><span class="glyphicon glyphicon-plus"></span> Cancel</button>
+        </form>
+    </div>
+
+</div>
+<div id="overlay" *ngIf="overlay"></div>
+<div *ngIf="modal" class="modal">
+    <h3 class="modal-title">{{modalTitle}}</h3>
+    <p class="modal-text">{{modalMessage}}</p>
 </div>

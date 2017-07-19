@@ -10,8 +10,9 @@ import { SuggestionsPageComponent } from './suggestions-page/suggestions-page.co
 import { HomePageComponent } from './home-page/home-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AboutPageComponent } from './about-page/about-page.component';
+import { SuggestionListService } from './suggestion-list/suggestion-list.service';
+import { SuggestionFormService } from './suggestion-form/suggestion-form.service';
 import { HttpModule } from '@angular/http';
-import { SuggestionCardComponent } from './suggestion-card/suggestion-card.component';
 
 const appRoutes: Routes = [
 	{
@@ -39,7 +40,6 @@ const appRoutes: Routes = [
 		HomePageComponent,
 		PageNotFoundComponent,
 		AboutPageComponent,
-		SuggestionCardComponent,
 	],
 	imports: [
 		HttpModule,
@@ -48,7 +48,7 @@ const appRoutes: Routes = [
 		ReactiveFormsModule,
 		RouterModule.forRoot(appRoutes),
 	],
-	providers: [],
+	providers: [SuggestionListService, SuggestionFormService],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -5,6 +5,35 @@
 	margin-right: auto;
 	margin-top: 0;
 }
+.modal {
+	top: 30%;
+	z-index: 1000;
+	display: block;
+	margin: 0 auto;
+	background-color: rgba(12, 222, 12, .9);
+	padding: 20px;
+	height: 25%;
+	text-align: center;
+	box-sizing: border-box;
+}
+#overlay {
+	position: fixed; /* Sit on top of the page content */
+	/* Hidden by default */
+	width: 100vw; /* Full width (cover the whole page) */
+	height: 100vh; /* Full height (cover the whole page) */
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(
+		0,
+		0,
+		0,
+		0.5
+	); /* Black background with opacity */
+	z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+	cursor: pointer; /* Add a pointer on hover */
+}
 .form-checkbox {
 	margin-left: 10px;
 }
@@ -28,6 +57,35 @@ label {
 }
 /* Format Suggestion Form Container*/
 
+/* Loading Styles */
+#loader-icon {
+	font-size: 1.5em;
+	position: relative;
+	top: 12px;
+	margin: 10px;
+}
+.glyphicon.spinning {
+	animation: spin 1s infinite linear;
+	-webkit-animation: spin2 1s infinite linear;
+}
+
+@keyframes spin {
+	from {
+		transform: scale(1) rotate(0deg);
+	}
+	to {
+		transform: scale(1) rotate(360deg);
+	}
+}
+
+@-webkit-keyframes spin2 {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
 .container {
 	padding-left: 0 !important;
 }
