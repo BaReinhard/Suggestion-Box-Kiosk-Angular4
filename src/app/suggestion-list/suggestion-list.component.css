@@ -12,9 +12,6 @@
 .btn.center {
 	width: 150px !important;
 }
-.btn {
-	height: 50px !important;
-}
 .delete-button {
 	display: inline-block;
 	position: absolute;
@@ -121,9 +118,6 @@
 	.delete-form {
 		width: 50%;
 		margin: 0 auto;
-	}
-	.btn {
-		height: 50px !important;
 	}
 } /* big landscape tablets, laptops, and desktops */
 @media (min-width: 1281px) {
