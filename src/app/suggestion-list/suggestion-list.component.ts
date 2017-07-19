@@ -109,7 +109,18 @@ export class SuggestionListComponent implements OnInit {
 			// AJAX to Update Member
 			// Create new service to update user
 		} else {
-			this.deleteSuggestion(index);
+			this.modal = true;
+			this.overlay = true;
+			this.modalMessage = `You have successfully completed this suggestion`;
+			this.modalTitle = 'Success!';
+			setTimeout(() => {
+				this.modal = false;
+				this.overlay = false;
+				this.deleteSuggestion(index);
+				this.informUserForm.reset({
+					subject: 'Update',
+				});
+			}, 2000);
 		}
 	};
 	selectAll = el => {

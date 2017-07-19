@@ -762,7 +762,18 @@ var SuggestionListComponent = (function () {
                 // Create new service to update user
             }
             else {
-                _this.deleteSuggestion(index);
+                _this.modal = true;
+                _this.overlay = true;
+                _this.modalMessage = "You have successfully completed this suggestion";
+                _this.modalTitle = 'Success!';
+                setTimeout(function () {
+                    _this.modal = false;
+                    _this.overlay = false;
+                    _this.deleteSuggestion(index);
+                    _this.informUserForm.reset({
+                        subject: 'Update',
+                    });
+                }, 2000);
             }
         };
         this.selectAll = function (el) {
