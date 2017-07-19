@@ -1,22 +1,30 @@
 <div class="form-group suggestion-container">
-  <h3>Suggestion Box</h3>
-  <div class="form-container">
-    <label for="name">Name</label>
-    <input name="name" [disabled]="disabled" #nameInput type="text" (click)="selectAll(nameInput)" class="form-control" [(ngModel)]="name"
-    />
-    <label for="email">Email</label>
-    <input name="email" [disabled]="disabled" #emailInput type="text" (click)="selectAll(emailInput)" class="form-control" [(ngModel)]="email"
-    />
-    <label for="updateMe">Contact me with updates?</label>
-    <br/>
 
-    <input name="updateMe" [disabled]="disabled" #updateInput type="checkbox" (click)="updateMember()" class="form" value=""
-      [(ngModel)]="updateMe" /><span class="form-checkbox">Yes</span><br/>
-    <label class="message" for="message">Message</label>
-    <textarea rows="4" cols="50" name="message" id="message" [disabled]="disabled" type="text" class="form-control" [(ngModel)]="message"
-      (keypress)="onEnter($event,nameInput)">
+  <div class="form-container">
+    <h3 class="suggestion-form-title">Suggestion Box</h3>
+    <div class="btn btn-success" (click)="clearForm()">Clear Form</div>
+    <form [formGroup]="suggestionForm" (ngSubmit)="saveSuggestion(nameInput,suggestionForm.value)" class="suggestion-form-title">
+      <label for="name">Name</label>
+      <input name="name" #nameInput type="text" (click)="selectAll(nameInput)" class="form-control" formControlName="name" />
+      <p *ngIf="!suggestionForm.controls['name'].valid && !suggestionForm.disabled" class="error">This field is required</p>
+      <label for="email">Email</label>
+      <input name="email" #emailInput type="text" (click)="selectAll(emailInput)" class="form-control" formControlName="email"
+      />
+      <p *ngIf="!suggestionForm.controls['email'].valid && !suggestionForm.disabled" class="error">This field is required</p>
+
+      <label for="updateMe">Contact me with updates?</label>
+      <br/>
+
+      <input name="updateMe" #updateInput type="checkbox" (click)="updateMember()" class="form" value="" formControlName="updateMe"
+      /><span class="form-checkbox">Yes</span><br/>
+      <label class="message" for="message">Message</label>
+      <textarea rows="4" cols="50" name="message" id="message" type="text" class="form-control" formControlName="message" (keypress)="onEnter($event,nameInput,suggestionForm.value)">
     </textarea>
-    <button [disabled]="disabled" class="btn btn-primary" (click)="saveSuggestion(nameInput)">Add Suggestion</button>
+      <p *ngIf="!suggestionForm.controls['message'].valid && suggestionForm.controls['message'].touched &&  !suggestionForm.disabled"
+        class="error">This field is required, please enter a suggestion between 10 and 200 characters long.</p>
+
+      <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add Suggestion</button>
+    </form>
     <span *ngIf="loading" id="loader-icon" class="glyphicon glyphicon-refresh spinning"></span>
     <p>{{saveMessage}}</p>
   </div>

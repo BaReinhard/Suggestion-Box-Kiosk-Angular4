@@ -4,12 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SuggestionListComponent } from './suggestion-list/suggestion-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SuggestionFormComponent } from './suggestion-form/suggestion-form.component';
 import { SuggestionsPageComponent } from './suggestions-page/suggestions-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AboutPageComponent } from './about-page/about-page.component';
+import { HttpModule } from '@angular/http';
+import { SuggestionCardComponent } from './suggestion-card/suggestion-card.component';
 
 const appRoutes: Routes = [
 	{
@@ -37,14 +39,14 @@ const appRoutes: Routes = [
 		HomePageComponent,
 		PageNotFoundComponent,
 		AboutPageComponent,
+		SuggestionCardComponent,
 	],
 	imports: [
+		HttpModule,
 		BrowserModule,
 		FormsModule,
-		RouterModule.forRoot(
-			appRoutes,
-			{ enableTracing: true }, // <-- debugging purposes only
-		),
+		ReactiveFormsModule,
+		RouterModule.forRoot(appRoutes),
 	],
 	providers: [],
 	bootstrap: [AppComponent],

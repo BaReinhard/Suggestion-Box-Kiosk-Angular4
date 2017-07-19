@@ -1,3 +1,51 @@
+@import url(https://fonts.googleapis.com/css?family=Russo+One);
+.container {
+	content: ' ';
+	display: block;
+	left: 0;
+	top: 0;
+	width: 100%;
+	min-height: 100vh;
+	z-index: -1;
+	background: url("./img/background.jpg") no-repeat top center fixed;
+	background-size: cover;
+	background-position: 100% 0;
+	max-height: 100%;
+}
 .container {
 	padding-top: 10vh;
+	padding-left: 0;
+	padding-right: 0;
+
+	font-family: 'Russo One' !important;
+}
+
+/* Loading Styles */
+#loader-icon {
+	font-size: 1.5em;
+	position: relative;
+	top: 12px;
+	margin: 10px;
+}
+.glyphicon.spinning {
+	animation: spin 1s infinite linear;
+	-webkit-animation: spin2 1s infinite linear;
+}
+
+@keyframes spin {
+	from {
+		transform: scale(1) rotate(0deg);
+	}
+	to {
+		transform: scale(1) rotate(360deg);
+	}
+}
+
+@-webkit-keyframes spin2 {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
 }

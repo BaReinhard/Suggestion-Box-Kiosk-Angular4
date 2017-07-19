@@ -3,10 +3,15 @@
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 0;
 }
 .form-checkbox {
-	display: inline-block;
-	margin-left: 5px;
+	margin-left: 10px;
+}
+.form-container {
+	background-color: rgba(255, 255, 255, 0.8);
+
+	padding: 20px;
 }
 .form-control {
 	width: 100%;
@@ -17,43 +22,20 @@ button {
 label {
 	margin-top: 10px;
 }
-
+.error {
+	font-style: italic;
+	color: red;
+}
 /* Format Suggestion Form Container*/
 
-/* Loading Styles */
-#loader-icon {
-	font-size: 1.5em;
-	position: relative;
-	top: 12px;
-	margin: 10px;
-}
-.glyphicon.spinning {
-	animation: spin 1s infinite linear;
-	-webkit-animation: spin2 1s infinite linear;
-}
-
-@keyframes spin {
-	from {
-		transform: scale(1) rotate(0deg);
-	}
-	to {
-		transform: scale(1) rotate(360deg);
-	}
-}
-
-@-webkit-keyframes spin2 {
-	from {
-		-webkit-transform: rotate(0deg);
-	}
-	to {
-		-webkit-transform: rotate(360deg);
-	}
+.container {
+	padding-left: 0 !important;
 }
 @media (min-width: 1025px) {
 	/* Format Suggestion Component Container */
 	.suggestion-container {
 		width: 50%;
-		margin-top: 100px;
+		margin-top: 0;
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -67,7 +49,7 @@ label {
 	/* Format Suggestion Form Container*/
 	.form-container {
 		box-sizing: border-box;
-		background-color: rgba(200, 200, 200, 0.5);
+		background-color: rgba(255, 255, 255, 0.8);
 		border-radius: 10px;
 		padding: 20px;
 	}

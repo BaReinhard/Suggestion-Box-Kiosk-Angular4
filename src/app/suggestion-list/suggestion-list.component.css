@@ -1,12 +1,37 @@
 .suggestion-card {
-	background-color: rgb(230, 230, 230);
+	background-color: rgba(255, 255, 255, 0.8);
 	padding: 10px;
 	border-radius: 10px;
+	width: 90%;
+	margin: 10px auto;
+}
+
+.suggestion-error {
+	display: block;
+	float: none;
+	left: 0;
+	right: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.center {
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	display: block;
+	width: 20%;
+	position: relative;
+	text-align: center;
 }
 .suggestion-title {
+	padding: 20px;
+	border-radius: 10px;
+	min-width: 25%;
+	max-width: 40%;
+	margin: 5px auto 20px auto;
 	text-align: center;
-	margin-top: 5px;
-	margin-bottom: 20px;
+	background-color: rgba(255, 255, 255, 0.8);
 }
 .suggestion-name {
 	color: black;
@@ -15,4 +40,40 @@
 .suggestion-message {
 	color: black;
 	font-style: italic;
+}
+
+@media (min-width: 1025px) {
+	.suggestion-card {
+		width: 50%;
+	}
+} /* big landscape tablets, laptops, and desktops */
+@media (min-width: 1281px) {
+} /* hi-res laptops and desktops */
+
+/* Loading Styles */
+#loader-icon {
+	color: white;
+	font-size: 3em;
+}
+.glyphicon.spinning {
+	animation: spin 1s infinite linear;
+	-webkit-animation: spin2 1s infinite linear;
+}
+
+@keyframes spin {
+	from {
+		transform: scale(1) rotate(0deg);
+	}
+	to {
+		transform: scale(1) rotate(360deg);
+	}
+}
+
+@-webkit-keyframes spin2 {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
 }
