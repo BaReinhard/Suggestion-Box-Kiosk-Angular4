@@ -13,6 +13,7 @@ export class SuggestionListComponent implements OnInit {
 		{ name: 'Brett', message: 'Message 3 from here' },
 		{ name: 'Brett', message: 'Message 4 from here' },
 	];
+  //PLACEHOLDER
 	constructor() {}
 	ngOnInit() {}
 }
