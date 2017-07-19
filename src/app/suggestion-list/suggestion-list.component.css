@@ -1,11 +1,36 @@
 .suggestion-card {
+	position: relative;
 	background-color: rgba(255, 255, 255, 0.8);
 	padding: 10px;
 	border-radius: 10px;
 	width: 90%;
 	margin: 10px auto;
 }
-
+.error {
+	color: red;
+}
+.btn.center {
+	width: 150px !important;
+}
+.delete-button {
+	display: inline-block;
+	position: absolute;
+	right: 3%;
+	bottom: 3%;
+	width: 150px;
+}
+.complete-button {
+	display: inline-block;
+	position: absolute;
+	left: 3%;
+	bottom: 3%;
+	width: 150px;
+}
+.complete-button::before {
+	content: '';
+	height: 30em;
+	background-color: black;
+}
 .delete-form {
 	display: block;
 	width: 100%;

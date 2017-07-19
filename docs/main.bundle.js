@@ -643,7 +643,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".suggestion-card {\n\tbackground-color: rgba(255, 255, 255, 0.8);\n\tpadding: 10px;\n\tborder-radius: 10px;\n\twidth: 90%;\n\tmargin: 10px auto;\n}\n\n.delete-form {\n\tdisplay: block;\n\twidth: 100%;\n\tpadding-left: 5%;\n\tpadding-right: 5%;\n\tpadding-top: 10px;\n\tpadding-bottom: 10px;\n\tbackground-color: rgba(255, 255, 255, 0.8);\n\tposition: fixed;\n\tz-index: 3;\n\ttop: 20vh;\n\tleft: 0;\n\tright: 0;\n\tmargin: 0 auto;\n}\n.modal {\n\ttop: 30%;\n\tz-index: 1000;\n\tdisplay: block;\n\tmargin: 0 auto;\n\tbackground-color: rgba(12, 222, 12, .9);\n\tpadding: 20px;\n\theight: 25%;\n\ttext-align: center;\n\tbox-sizing: border-box;\n}\n#overlay {\n\tposition: fixed; /* Sit on top of the page content */\n\t/* Hidden by default */\n\twidth: 100vw; /* Full width (cover the whole page) */\n\theight: 100vh; /* Full height (cover the whole page) */\n\ttop: 0;\n\tleft: 0;\n\tright: 0;\n\tbottom: 0;\n\tbackground-color: rgba(\n\t\t0,\n\t\t0,\n\t\t0,\n\t\t0.5\n\t); /* Black background with opacity */\n\tz-index: 2; /* Specify a stack order in case you're using a different order for other elements */\n\tcursor: pointer; /* Add a pointer on hover */\n}\n.suggestion-error {\n\tdisplay: block;\n\tfloat: none;\n\tleft: 0;\n\tright: 0;\n\twidth: 100%;\n\ttext-align: center;\n}\n\n.center {\n\tmargin: 0 auto;\n\tleft: 0;\n\tright: 0;\n\tdisplay: block;\n\twidth: 20%;\n\tposition: relative;\n\ttext-align: center;\n}\n.suggestion-title {\n\tpadding: 20px;\n\tborder-radius: 10px;\n\tmin-width: 25%;\n\tmax-width: 40%;\n\tmargin: 5px auto 20px auto;\n\ttext-align: center;\n\tbackground-color: rgba(255, 255, 255, 0.8);\n}\n.suggestion-name {\n\tcolor: black;\n\tfont-style: italic;\n}\n.suggestion-message {\n\tcolor: black;\n\tfont-style: italic;\n}\n\n@media (min-width: 1025px) {\n\t.suggestion-card {\n\t\twidth: 50%;\n\t}\n\t.delete-form {\n\t\twidth: 50%;\n\t\tmargin: 0 auto;\n\t}\n} /* big landscape tablets, laptops, and desktops */\n@media (min-width: 1281px) {\n} /* hi-res laptops and desktops */\n\n/* Loading Styles */\n#loader-icon {\n\tcolor: white;\n\tfont-size: 3em;\n}\n.glyphicon.spinning {\n\tanimation: spin 1s infinite linear;\n\t-webkit-animation: spin2 1s infinite linear;\n}\n\n@-webkit-keyframes spin {\n\tfrom {\n\t\t-webkit-transform: scale(1) rotate(0deg);\n\t\t        transform: scale(1) rotate(0deg);\n\t}\n\tto {\n\t\t-webkit-transform: scale(1) rotate(360deg);\n\t\t        transform: scale(1) rotate(360deg);\n\t}\n}\n\n@keyframes spin {\n\tfrom {\n\t\t-webkit-transform: scale(1) rotate(0deg);\n\t\t        transform: scale(1) rotate(0deg);\n\t}\n\tto {\n\t\t-webkit-transform: scale(1) rotate(360deg);\n\t\t        transform: scale(1) rotate(360deg);\n\t}\n}\n\n@-webkit-keyframes spin2 {\n\tfrom {\n\t\t-webkit-transform: rotate(0deg);\n\t}\n\tto {\n\t\t-webkit-transform: rotate(360deg);\n\t}\n}\n", ""]);
+exports.push([module.i, ".suggestion-card {\n\tposition: relative;\n\tbackground-color: rgba(255, 255, 255, 0.8);\n\tpadding: 10px;\n\tborder-radius: 10px;\n\twidth: 90%;\n\tmargin: 10px auto;\n}\n.error {\n\tcolor: red;\n}\n.btn.center {\n\twidth: 150px !important;\n}\n.delete-button {\n\tdisplay: inline-block;\n\tposition: absolute;\n\tright: 3%;\n\tbottom: 3%;\n\twidth: 150px;\n}\n.complete-button {\n\tdisplay: inline-block;\n\tposition: absolute;\n\tleft: 3%;\n\tbottom: 3%;\n\twidth: 150px;\n}\n.complete-button::before {\n\tcontent: '';\n\theight: 30em;\n\tbackground-color: black;\n}\n.delete-form {\n\tdisplay: block;\n\twidth: 100%;\n\tpadding-left: 5%;\n\tpadding-right: 5%;\n\tpadding-top: 10px;\n\tpadding-bottom: 10px;\n\tbackground-color: rgba(255, 255, 255, 0.8);\n\tposition: fixed;\n\tz-index: 3;\n\ttop: 20vh;\n\tleft: 0;\n\tright: 0;\n\tmargin: 0 auto;\n}\n.modal {\n\ttop: 30%;\n\tz-index: 1000;\n\tdisplay: block;\n\tmargin: 0 auto;\n\tbackground-color: rgba(12, 222, 12, .9);\n\tpadding: 20px;\n\theight: 25%;\n\ttext-align: center;\n\tbox-sizing: border-box;\n}\n#overlay {\n\tposition: fixed; /* Sit on top of the page content */\n\t/* Hidden by default */\n\twidth: 100vw; /* Full width (cover the whole page) */\n\theight: 100vh; /* Full height (cover the whole page) */\n\ttop: 0;\n\tleft: 0;\n\tright: 0;\n\tbottom: 0;\n\tbackground-color: rgba(\n\t\t0,\n\t\t0,\n\t\t0,\n\t\t0.5\n\t); /* Black background with opacity */\n\tz-index: 2; /* Specify a stack order in case you're using a different order for other elements */\n\tcursor: pointer; /* Add a pointer on hover */\n}\n.suggestion-error {\n\tdisplay: block;\n\tfloat: none;\n\tleft: 0;\n\tright: 0;\n\twidth: 100%;\n\ttext-align: center;\n}\n\n.center {\n\tmargin: 0 auto;\n\tleft: 0;\n\tright: 0;\n\tdisplay: block;\n\twidth: 20%;\n\tposition: relative;\n\ttext-align: center;\n}\n.suggestion-title {\n\tpadding: 20px;\n\tborder-radius: 10px;\n\tmin-width: 25%;\n\tmax-width: 40%;\n\tmargin: 5px auto 20px auto;\n\ttext-align: center;\n\tbackground-color: rgba(255, 255, 255, 0.8);\n}\n.suggestion-name {\n\tcolor: black;\n\tfont-style: italic;\n}\n.suggestion-message {\n\tcolor: black;\n\tfont-style: italic;\n}\n\n@media (min-width: 1025px) {\n\t.suggestion-card {\n\t\twidth: 50%;\n\t}\n\t.delete-form {\n\t\twidth: 50%;\n\t\tmargin: 0 auto;\n\t}\n} /* big landscape tablets, laptops, and desktops */\n@media (min-width: 1281px) {\n} /* hi-res laptops and desktops */\n\n/* Loading Styles */\n#loader-icon {\n\tcolor: white;\n\tfont-size: 3em;\n}\n.glyphicon.spinning {\n\tanimation: spin 1s infinite linear;\n\t-webkit-animation: spin2 1s infinite linear;\n}\n\n@-webkit-keyframes spin {\n\tfrom {\n\t\t-webkit-transform: scale(1) rotate(0deg);\n\t\t        transform: scale(1) rotate(0deg);\n\t}\n\tto {\n\t\t-webkit-transform: scale(1) rotate(360deg);\n\t\t        transform: scale(1) rotate(360deg);\n\t}\n}\n\n@keyframes spin {\n\tfrom {\n\t\t-webkit-transform: scale(1) rotate(0deg);\n\t\t        transform: scale(1) rotate(0deg);\n\t}\n\tto {\n\t\t-webkit-transform: scale(1) rotate(360deg);\n\t\t        transform: scale(1) rotate(360deg);\n\t}\n}\n\n@-webkit-keyframes spin2 {\n\tfrom {\n\t\t-webkit-transform: rotate(0deg);\n\t}\n\tto {\n\t\t-webkit-transform: rotate(360deg);\n\t}\n}\n", ""]);
 
 // exports
 
@@ -656,7 +656,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/suggestion-list/suggestion-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"suggestion-container\">\n    <h4 class=\"suggestion-title\">\n        Suggestions: </h4>\n    <div *ngIf=\"suggestions.length\" class=\"btn btn-success center\" (click)=\"loadSuggestions()\">Refresh</div>\n\n    <div *ngFor=\"let sugs of suggestions; let i = index\">\n        <div class=\"suggestion-card form-group\" #thisel>\n            <label for=\"name\">Name: </label>\n            <p class=\"suggestion-name\" for=\"name\">{{sugs.name}}</p>\n            <label for=\"message\">Message: </label>\n            <p class=\"suggestion-message\">{{sugs.message}}</p>\n            <label for=\"keepUpdated\">Keep Updated:</label>\n            <p class=\"suggestion-keep-updated\">{{sugs.update?\"Keep Updated\":\"No\"}}</p>\n            <label for=\"email\">Email:</label>\n            <p class=\"suggestion-email\">{{sugs.email}}</p>\n\n            <div class=\"btn btn-success\" (click)=\"showForm(i,sugs.update)\">Mark Completed</div>\n            <div class=\"btn btn-danger\" (click)=\"showForm(i,sugs.update)\">Delete</div>\n        </div>\n    </div>\n    <div class=\"loading center form-group\">\n\n        <span *ngIf=\"loading\" id=\"loader-icon\" class=\"glyphicon glyphicon-refresh spinning center\"></span>\n    </div>\n    <div *ngIf=\"error\" class=\"suggestion-card\">\n        <label for=\"error\" class=\"suggestion-error\">{{errorMessage}}</label>\n        <div *ngIf=\"!suggestions.length\" class=\"btn btn-danger center\" (click)=\"loadSuggestions()\">Try Again</div>\n\n    </div>\n    <div *ngIf=\"informUser\" class=\"delete-form\">\n        <h3>Update the Member</h3>\n        <form [formGroup]=\"informUserForm\" (ngSubmit)=\"sendEmail(informUserForm.value)\" class=\"suggestion-form-title\">\n            <label for=\"subject\">Subject</label>\n            <input name=\"subject\" #subjectInput type=\"text\" (click)=\"selectAll(subjectInput)\" class=\"form-control\" formControlName=\"subject\"\n            />\n            <p *ngIf=\"!informUserForm.controls['subject'].valid && !informUserForm.disabled\" class=\"error\">This field is required</p>\n\n\n            <label class=\"message\" for=\"message\">Message</label>\n            <textarea rows=\"4\" cols=\"50\" name=\"message\" id=\"message\" type=\"text\" class=\"form-control\" formControlName=\"message\" (keypress)=\"onEnter($event,informUserForm.value)\">\n    </textarea>\n            <p *ngIf=\"!informUserForm.controls['message'].valid && informUserForm.controls['message'].touched &&  !informUserForm.disabled\"\n                class=\"error\">This field is required, please enter a suggestion between 10 and 300 characters long.</p>\n\n            <button type=\"submit\" class=\"btn btn-primary\"><span class=\"glyphicon glyphicon-plus\"></span>Send Update</button>\n\n            <div (click)=\"closeForm()\" class=\"btn btn-danger\"><span class=\"glyphicon glyphicon-plus\"></span> Cancel</div>\n        </form>\n    </div>\n\n</div>\n<div id=\"overlay\" *ngIf=\"overlay\"></div>\n<div *ngIf=\"modal\" class=\"modal\">\n    <h3 class=\"modal-title\">{{modalTitle}}</h3>\n    <p class=\"modal-text\">{{modalMessage}}</p>\n</div>"
+module.exports = "<div class=\"suggestion-container\">\n    <h4 class=\"suggestion-title\">\n        Suggestions: </h4>\n    <div *ngIf=\"suggestions.length\" class=\"btn btn-success center\" (click)=\"loadSuggestions()\">Refresh</div>\n\n    <div *ngFor=\"let sugs of suggestions; let i = index\">\n        <div class=\"suggestion-card form-group\" #thisel>\n            <label for=\"name\">Name: </label>\n            <p class=\"suggestion-name\" for=\"name\">{{sugs.name}}</p>\n            <label for=\"message\">Message: </label>\n            <p class=\"suggestion-message\">{{sugs.message}}</p>\n            <label for=\"keepUpdated\">Keep Updated:</label>\n            <p class=\"suggestion-keep-updated\">{{sugs.update?\"Keep Updated\":\"No\"}}</p>\n            <label for=\"email\">Email:</label>\n            <p class=\"suggestion-email\">{{sugs.email}}</p>\n            <br><br>\n            <div class=\"btn btn-success complete-button\" (click)=\"showForm(i,sugs.update)\">Mark Completed</div>\n            <div class=\"btn btn-danger delete-button\" (click)=\"showForm(i,sugs.update)\">Delete</div>\n        </div>\n    </div>\n    <div class=\"loading center form-group\">\n\n        <span *ngIf=\"loading\" id=\"loader-icon\" class=\"glyphicon glyphicon-refresh spinning center\"></span>\n    </div>\n    <div *ngIf=\"error\" class=\"suggestion-card\">\n        <label for=\"error\" class=\"suggestion-error\">{{errorMessage}}</label>\n        <div *ngIf=\"!suggestions.length\" class=\"btn btn-danger center\" (click)=\"loadSuggestions()\">Try Again</div>\n\n    </div>\n    <div *ngIf=\"informUser\" class=\"delete-form\">\n        <h3>Update the Member</h3>\n        <form [formGroup]=\"informUserForm\" (ngSubmit)=\"sendEmail(informUserForm.value)\" class=\"suggestion-form-title\">\n            <label for=\"subject\">Subject</label>\n            <input name=\"subject\" #subjectInput type=\"text\" (click)=\"selectAll(subjectInput)\" class=\"form-control\" formControlName=\"subject\"\n            />\n            <p *ngIf=\"!informUserForm.controls['subject'].valid && !informUserForm.disabled\" class=\"error\">This field is required</p>\n\n\n            <label class=\"message\" for=\"message\">Message</label>\n            <textarea rows=\"4\" cols=\"50\" name=\"message\" id=\"message\" type=\"text\" class=\"form-control\" formControlName=\"message\" (keypress)=\"onEnter($event,informUserForm.value)\">\n    </textarea>\n            <p *ngIf=\"!informUserForm.controls['message'].valid && informUserForm.controls['message'].touched &&  !informUserForm.disabled\"\n                class=\"error\">This field is required, please enter a suggestion between 10 and 300 characters long.</p>\n\n            <button type=\"submit\" class=\"btn btn-primary\"><span class=\"glyphicon glyphicon-plus\"></span>Send Update</button>\n\n            <div (click)=\"closeForm()\" class=\"btn btn-danger\"><span class=\"glyphicon glyphicon-plus\"></span> Cancel</div>\n        </form>\n    </div>\n\n</div>\n<div id=\"overlay\" *ngIf=\"overlay\"></div>\n<div *ngIf=\"modal\" class=\"modal\">\n    <h3 class=\"modal-title\">{{modalTitle}}</h3>\n    <p class=\"modal-text\">{{modalMessage}}</p>\n</div>"
 
 /***/ }),
 
@@ -789,30 +789,39 @@ var SuggestionListComponent = (function () {
                 ? _this.sendEmail(vals)
                 : console.log(event.keyCode);
         };
+        this.touchForm = function () {
+            _this.informUserForm.controls.subject.markAsTouched();
+            _this.informUserForm.controls.message.markAsTouched();
+        };
         this.sendEmail = function (vals) {
-            var index = _this.currentSuggestionIndex;
-            console.log(index, vals);
-            var suggestionDetails = _this.suggestions[index];
-            var emailJSON = {
-                email: suggestionDetails.email,
-                name: suggestionDetails.name,
-                message: vals.message,
-                subject: vals.subject,
-            };
-            console.log(emailJSON);
-            console.log(suggestionDetails);
-            _this.informUser = _this.overlay = false;
-            _this.modal = true;
-            _this.overlay = true;
-            _this.modalMessage = "You have successfully sent the update to " + emailJSON.name;
-            _this.modalTitle = 'Success!';
-            setTimeout(function () {
-                _this.modal = false;
-                _this.overlay = false;
-                _this.informUserForm.reset({
-                    subject: 'Update',
-                });
-            }, 2000);
+            if (_this.informUserForm.valid) {
+                var index = _this.currentSuggestionIndex;
+                console.log(index, vals);
+                var suggestionDetails = _this.suggestions[index];
+                var emailJSON = {
+                    email: suggestionDetails.email,
+                    name: suggestionDetails.name,
+                    message: vals.message,
+                    subject: vals.subject,
+                };
+                console.log(emailJSON);
+                console.log(suggestionDetails);
+                _this.informUser = _this.overlay = false;
+                _this.modal = true;
+                _this.overlay = true;
+                _this.modalMessage = "You have successfully sent the update to " + emailJSON.name;
+                _this.modalTitle = 'Success!';
+                setTimeout(function () {
+                    _this.modal = false;
+                    _this.overlay = false;
+                    _this.informUserForm.reset({
+                        subject: 'Update',
+                    });
+                }, 2000);
+            }
+            else {
+                _this.touchForm();
+            }
         };
         this.deleteSuggestion = function (index) {
             console.log(_this.suggestions[index].sugKey);

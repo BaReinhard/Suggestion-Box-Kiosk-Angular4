@@ -136,30 +136,38 @@ export class SuggestionListComponent implements OnInit {
 			? this.sendEmail(vals)
 			: console.log(event.keyCode);
 	};
+	touchForm = () => {
+		this.informUserForm.controls.subject.markAsTouched();
+		this.informUserForm.controls.message.markAsTouched();
+	};
 	sendEmail = vals => {
-		let index = this.currentSuggestionIndex;
-		console.log(index, vals);
-		let suggestionDetails = this.suggestions[index];
-		let emailJSON = {
-			email: suggestionDetails.email,
-			name: suggestionDetails.name,
-			message: vals.message,
-			subject: vals.subject,
-		};
-		console.log(emailJSON);
-		console.log(suggestionDetails);
-		this.informUser = this.overlay = false;
-		this.modal = true;
-		this.overlay = true;
-		this.modalMessage = `You have successfully sent the update to ${emailJSON.name}`;
-		this.modalTitle = 'Success!';
-		setTimeout(() => {
-			this.modal = false;
-			this.overlay = false;
-			this.informUserForm.reset({
-				subject: 'Update',
-			});
-		}, 2000);
+		if (this.informUserForm.valid) {
+			let index = this.currentSuggestionIndex;
+			console.log(index, vals);
+			let suggestionDetails = this.suggestions[index];
+			let emailJSON = {
+				email: suggestionDetails.email,
+				name: suggestionDetails.name,
+				message: vals.message,
+				subject: vals.subject,
+			};
+			console.log(emailJSON);
+			console.log(suggestionDetails);
+			this.informUser = this.overlay = false;
+			this.modal = true;
+			this.overlay = true;
+			this.modalMessage = `You have successfully sent the update to ${emailJSON.name}`;
+			this.modalTitle = 'Success!';
+			setTimeout(() => {
+				this.modal = false;
+				this.overlay = false;
+				this.informUserForm.reset({
+					subject: 'Update',
+				});
+			}, 2000);
+		} else {
+			this.touchForm();
+		}
 	};
 	deleteSuggestion = index => {
 		console.log(this.suggestions[index].sugKey);
