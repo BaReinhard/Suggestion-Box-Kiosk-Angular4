@@ -4,6 +4,7 @@ import { Headers, Http } from '@angular/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import 'rxjs/add/operator/toPromise';
 import { SuggestionListService } from './suggestion-list.service';
+import { EmailService } from '../email/email.service';
 
 @Component({
 	selector: 'app-suggestion-list',
@@ -12,6 +13,7 @@ import { SuggestionListService } from './suggestion-list.service';
 })
 export class SuggestionListComponent implements OnInit {
 	informUserForm: FormGroup;
+	badPassword: boolean = false;
 	error: boolean = false;
 	errorMessage: string = '';
 	suggestions: Array<any> = [];
@@ -22,10 +24,12 @@ export class SuggestionListComponent implements OnInit {
 	modal: boolean = false;
 	modalMessage: string = '';
 	modalTitle: string = '';
+	errorTitle: string = '';
 
 	constructor(
 		private fb: FormBuilder,
 		private suggestionService: SuggestionListService,
+		private emailService: EmailService,
 	) {
 		this.informUserForm = fb.group({
 			subject: ['Update', Validators.compose([Validators.required])],
@@ -77,25 +81,10 @@ export class SuggestionListComponent implements OnInit {
 					this.loading = false;
 				},
 			);
-			// let newJson = {
-			// 	emailAddress: 'brettreinhard@gmail.com',
-			// 	message:
-			// 		'This is a valid post request, made from Angular4 in TypeScript',
-			// 	name: 'Made from Angular, via TypeScript',
-			// };
-			// this.http
-			// 	.post(
-			// 		'https://prod-05.centralus.logic.azure.com:443/workflows/fa37615468aa4ffd9da2ba549e1ce8b8/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=aA49qZ8e59z65oZm152xWL9bn4CRe9vJRLR8bYrezoc',
-			// 		newJson,
-			// 	)
-			// 	.toPromise()
-			// 	.then(response => {
-			// 		console.log(response);
-			// 	});
 		} else {
 			this.suggestions = [];
 			this.loading = false;
-			this.error = true;
+			this.badPassword = true;
 			this.errorMessage =
 				'You have entered an incorrect password, please refresh and try again';
 		}
@@ -136,6 +125,14 @@ export class SuggestionListComponent implements OnInit {
 			? this.sendEmail(vals)
 			: console.log(event.keyCode);
 	};
+	showError = (title, message) => {
+		this.error = this.overlay = true;
+		this.errorMessage = message;
+		this.errorTitle = title;
+		setTimeout(() => {
+			this.error = this.overlay = false;
+		}, 3000);
+	};
 	touchForm = () => {
 		this.informUserForm.controls.subject.markAsTouched();
 		this.informUserForm.controls.message.markAsTouched();
@@ -151,20 +148,27 @@ export class SuggestionListComponent implements OnInit {
 				message: vals.message,
 				subject: vals.subject,
 			};
-			console.log(emailJSON);
-			console.log(suggestionDetails);
-			this.informUser = this.overlay = false;
-			this.modal = true;
-			this.overlay = true;
-			this.modalMessage = `You have successfully sent the update to ${emailJSON.name}`;
-			this.modalTitle = 'Success!';
-			setTimeout(() => {
-				this.modal = false;
-				this.overlay = false;
-				this.informUserForm.reset({
-					subject: 'Update',
-				});
-			}, 2000);
+			this.emailService.sendEmail(emailJSON).subscribe(
+				response => {
+					console.log(emailJSON);
+					console.log(suggestionDetails);
+					this.informUser = this.overlay = false;
+					this.modal = true;
+					this.overlay = true;
+					this.modalMessage = `You have successfully sent the update to ${emailJSON.name}`;
+					this.modalTitle = 'Success!';
+					setTimeout(() => {
+						this.modal = false;
+						this.overlay = false;
+						this.informUserForm.reset({
+							subject: 'Update',
+						});
+					}, 3000);
+				},
+				error => {
+					this.showError('Error', error);
+				},
+			);
 		} else {
 			this.touchForm();
 		}

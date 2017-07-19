@@ -22,7 +22,7 @@
 
         <span *ngIf="loading" id="loader-icon" class="glyphicon glyphicon-refresh spinning center"></span>
     </div>
-    <div *ngIf="error" class="suggestion-card">
+    <div *ngIf="badPassword" class="suggestion-card">
         <label for="error" class="suggestion-error">{{errorMessage}}</label>
         <div *ngIf="!suggestions.length" class="btn btn-danger center" (click)="loadSuggestions()">Try Again</div>
 
@@ -33,14 +33,14 @@
             <label for="subject">Subject</label>
             <input name="subject" #subjectInput type="text" (click)="selectAll(subjectInput)" class="form-control" formControlName="subject"
             />
-            <p *ngIf="!informUserForm.controls['subject'].valid && !informUserForm.disabled" class="error">This field is required</p>
+            <p *ngIf="!informUserForm.controls['subject'].valid && !informUserForm.disabled" class="invalid">This field is required</p>
 
 
             <label class="message" for="message">Message</label>
             <textarea rows="4" cols="50" name="message" id="message" type="text" class="form-control" formControlName="message" (keypress)="onEnter($event,informUserForm.value)">
     </textarea>
             <p *ngIf="!informUserForm.controls['message'].valid && informUserForm.controls['message'].touched &&  !informUserForm.disabled"
-                class="error">This field is required, please enter a suggestion between 10 and 300 characters long.</p>
+                class="invalid">This field is required, please enter a suggestion between 10 and 300 characters long.</p>
 
             <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Send Update</button>
 
@@ -49,8 +49,12 @@
     </div>
 
 </div>
-<div id="overlay" *ngIf="overlay"></div>
+<div id="overlay" *ngIf="overlay || informUser"></div>
 <div *ngIf="modal" class="modal">
     <h3 class="modal-title">{{modalTitle}}</h3>
     <p class="modal-text">{{modalMessage}}</p>
+</div>
+<div *ngIf="error" class="modal error">
+    <h3 class="modal-title">{{errorTitle}}</h3>
+    <p class="modal-text">{{errorMessage}}</p>
 </div>

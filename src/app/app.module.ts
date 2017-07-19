@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AboutPageComponent } from './about-page/about-page.component';
 import { SuggestionListService } from './suggestion-list/suggestion-list.service';
 import { SuggestionFormService } from './suggestion-form/suggestion-form.service';
+import { EmailService } from './email/email.service';
 import { HttpModule } from '@angular/http';
 
 const appRoutes: Routes = [
@@ -48,7 +49,11 @@ const appRoutes: Routes = [
 		ReactiveFormsModule,
 		RouterModule.forRoot(appRoutes),
 	],
-	providers: [SuggestionListService, SuggestionFormService],
+	providers: [
+		SuggestionListService,
+		SuggestionFormService,
+		EmailService,
+	],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}
