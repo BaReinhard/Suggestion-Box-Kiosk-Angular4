@@ -1648,14 +1648,17 @@ webpackJsonp(
 							setTimeout(function() {
 								console.log(emailJSON_1);
 								console.log(suggestionDetails_1);
-								_this.informUser = _this.overlay = false;
-								_this.modal = true;
-								_this.loading = false;
-								_this.overlay = true;
-								_this.modalMessage =
-									'You have successfully sent the update to ' +
-									emailJSON_1.name;
-								_this.modalTitle = 'Success!';
+								if (!_this.deleteNow) {
+									_this.informUser = _this.overlay = false;
+									_this.modal = true;
+									_this.loading = false;
+									_this.overlay = true;
+									_this.modalMessage =
+										'You have successfully sent the update to ' +
+										emailJSON_1.name;
+									_this.modalTitle = 'Success!';
+								}
+
 								setTimeout(function() {
 									_this.modal = false;
 									_this.overlay = false;
