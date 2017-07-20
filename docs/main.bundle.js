@@ -1648,7 +1648,7 @@ webpackJsonp(
 							setTimeout(function() {
 								console.log(emailJSON_1);
 								console.log(suggestionDetails_1);
-								if (!_this.deleteNow) {
+								if (_this.deleteNow) {
 									_this.informUser = _this.overlay = false;
 									_this.modal = true;
 									_this.loading = false;
