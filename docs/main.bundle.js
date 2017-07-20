@@ -1651,9 +1651,10 @@ webpackJsonp(
 							setTimeout(function() {
 								console.log(emailJSON_1);
 								console.log(suggestionDetails_1);
-								if (_this.deleteNow) {
+								if (!_this.deleteNow) {
 									_this.informUser = _this.overlay = false;
 									_this.modal = true;
+									_this.loading = false;
 									_this.overlay = true;
 									_this.modalMessage =
 										'You have successfully sent the update to ' +
@@ -1662,8 +1663,6 @@ webpackJsonp(
 								}
 
 								setTimeout(function() {
-
-									_this.loading = false;
 									_this.modal = false;
 									_this.overlay = false;
 									_this.informUserForm.reset({
