@@ -768,7 +768,7 @@ var SuggestionListComponent = (function () {
             _this.overlay = true;
             _this.error = false;
             // Bad practice do not actually use this on real web pages
-            var password = prompt('Please enter the password');
+            var password = 'password';
             if (password === 'password') {
                 _this.suggestionService.getSuggestions().subscribe(function (response) {
                     // console.log(response.json());
