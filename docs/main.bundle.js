@@ -1593,11 +1593,14 @@ webpackJsonp(
 							// AJAX to Update Member
 							// Create new service to update user
 						} else {
-							_this.modal = true;
-							_this.overlay = true;
-							_this.modalMessage =
-								'You have successfully completed this suggestion';
-							_this.modalTitle = 'Success!';
+							if (_this.deleteNow) {
+								_this.modal = true;
+								_this.overlay = true;
+								_this.modalMessage =
+									'You have successfully completed this suggestion';
+								_this.modalTitle = 'Success!';
+							}
+
 							setTimeout(function() {
 								_this.modal = false;
 								_this.overlay = false;
