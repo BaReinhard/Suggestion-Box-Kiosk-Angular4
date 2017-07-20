@@ -50,6 +50,7 @@ export class SuggestionListComponent implements OnInit {
 	}
 
 	loadSuggestions = () => {
+		this.badPassword = false;
 		this.loading = true;
 		this.overlay = true;
 		this.error = false;

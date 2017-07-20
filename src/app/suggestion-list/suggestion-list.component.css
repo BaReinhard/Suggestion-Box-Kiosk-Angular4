@@ -6,12 +6,35 @@
 	width: 90%;
 	margin: 10px auto;
 }
-
+.left {
+	padding-left: 0;
+}
+label + p {
+	font-style: italic;
+}
+label {
+	font-size: 1.2em;
+}
 .invalid {
 	color: red;
 }
-.btn.center {
-	width: 150px !important;
+.btn {
+	width: 80px !important;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.right {
+	margin-left: 0;
+	margin-right: 0;
+}
+.right::before {
+	content: "";
+	display: block;
+	height: 1px;
+	width: 100%;
+	margin-bottom: 10px;
+	background-color: rgba(0, 0, 0, 0.5);
 }
 .delete-button {
 	display: inline-block;
@@ -41,6 +64,7 @@
 	height: 30em;
 	background-color: black;
 }
+
 .delete-form {
 	display: block;
 	width: 100%;
@@ -70,6 +94,9 @@
 .error {
 	background-color: rgba(222, 12, 12, .9);
 	color: white;
+}
+.loading {
+	background-color: rgba(255, 255, 255, 0.8);
 }
 #overlay {
 	position: fixed; /* Sit on top of the page content */
@@ -111,7 +138,7 @@
 	padding: 20px;
 	border-radius: 10px;
 	min-width: 25%;
-	max-width: 40%;
+	max-width: 50%;
 	margin: 5px auto 20px auto;
 	text-align: center;
 	background-color: rgba(255, 255, 255, 0.8);
@@ -124,10 +151,53 @@
 	color: black;
 	font-style: italic;
 }
-.loading {
-	background-color: rgba(255, 255, 255, 0.8);
+@media (min-width: 500px) {
+	.btn {
+		width: 100px !important;
+	}
+}
+@media (max-width: 900px) {
+	.btn {
+		padding-left: 0;
+		padding-right: 0;
+		font-size: 80%;
+	}
+}
+@media (min-width: 900px) {
+	.right::before {
+		content: none;
+	}
+	.btn {
+		width: 150px !important;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
 }
 @media (min-width: 1025px) {
+	.suggestion-card {
+		position: relative;
+		background-color: rgba(255, 255, 255, 0.8);
+		padding: 10px;
+		border-radius: 10px;
+		width: 90%;
+		margin: 10px auto;
+		height: 150px;
+	}
+	.left {
+		position: relative;
+		text-align: center;
+	}
+	.content-container {
+		position: relative;
+
+		text-align: center;
+	}
+	.right {
+		position: relative;
+
+		text-align: center;
+	}
 	.suggestion-card {
 		width: 50%;
 	}

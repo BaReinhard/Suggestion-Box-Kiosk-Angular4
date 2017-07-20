@@ -253,7 +253,7 @@ var EmailService = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({
             'Content-Type': 'application/json',
         });
-        return this.http.post('something', email, {
+        return this.http.post('https://prod-27.centralus.logic.azure.com:443/workflows/957ebed812b24ebb9dd95e812e417b16/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=jU_IXBzNqNWQ2u2Iy5biYgecNGkMvgt4UR3Yk0PfOkQ', email, {
             headers: this.headers,
         });
     };
@@ -471,7 +471,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* Format Suggestion Component Container */\n.suggestion-container {\n\twidth: 100%;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tmargin-top: 0;\n}\n.modal {\n\ttop: 30%;\n\tz-index: 1000;\n\tdisplay: block;\n\tmargin: 0 auto;\n\tbackground-color: rgba(12, 222, 12, .9);\n\tpadding: 20px;\n\theight: 25%;\n\ttext-align: center;\n\tbox-sizing: border-box;\n}\n#overlay {\n\tposition: fixed; /* Sit on top of the page content */\n\t/* Hidden by default */\n\twidth: 100vw; /* Full width (cover the whole page) */\n\theight: 100vh; /* Full height (cover the whole page) */\n\ttop: 0;\n\tleft: 0;\n\tright: 0;\n\tbottom: 0;\n\tbackground-color: rgba(\n\t\t0,\n\t\t0,\n\t\t0,\n\t\t0.5\n\t); /* Black background with opacity */\n\tz-index: 2; /* Specify a stack order in case you're using a different order for other elements */\n\tcursor: pointer; /* Add a pointer on hover */\n}\n.form-checkbox {\n\tmargin-left: 10px;\n}\n.form-container {\n\tbackground-color: rgba(255, 255, 255, 0.8);\n\n\tpadding: 20px;\n}\n.form-control {\n\twidth: 100%;\n}\nbutton {\n\tmargin-top: 10px;\n}\nlabel {\n\tmargin-top: 10px;\n}\n.error {\n\tfont-style: italic;\n\tcolor: red;\n}\n/* Format Suggestion Form Container*/\n\n/* Loading Styles */\n#loader-icon {\n\tfont-size: 1.5em;\n\tposition: relative;\n\ttop: 12px;\n\tmargin: 10px;\n}\n.glyphicon.spinning {\n\tanimation: spin 1s infinite linear;\n\t-webkit-animation: spin2 1s infinite linear;\n}\n\n@-webkit-keyframes spin {\n\tfrom {\n\t\t-webkit-transform: scale(1) rotate(0deg);\n\t\t        transform: scale(1) rotate(0deg);\n\t}\n\tto {\n\t\t-webkit-transform: scale(1) rotate(360deg);\n\t\t        transform: scale(1) rotate(360deg);\n\t}\n}\n\n@keyframes spin {\n\tfrom {\n\t\t-webkit-transform: scale(1) rotate(0deg);\n\t\t        transform: scale(1) rotate(0deg);\n\t}\n\tto {\n\t\t-webkit-transform: scale(1) rotate(360deg);\n\t\t        transform: scale(1) rotate(360deg);\n\t}\n}\n\n@-webkit-keyframes spin2 {\n\tfrom {\n\t\t-webkit-transform: rotate(0deg);\n\t}\n\tto {\n\t\t-webkit-transform: rotate(360deg);\n\t}\n}\n.container {\n\tpadding-left: 0 !important;\n}\n@media (min-width: 1025px) {\n\t/* Format Suggestion Component Container */\n\t.suggestion-container {\n\t\twidth: 50%;\n\t\tmargin-top: 0;\n\t\tmargin-left: auto;\n\t\tmargin-right: auto;\n\t}\n\tbutton {\n\t\tmargin-top: 10px;\n\t}\n\tlabel {\n\t\tmargin-top: 10px;\n\t}\n\n\t/* Format Suggestion Form Container*/\n\t.form-container {\n\t\tbox-sizing: border-box;\n\t\tbackground-color: rgba(255, 255, 255, 0.8);\n\t\tborder-radius: 10px;\n\t\tpadding: 20px;\n\t}\n} /* big landscape tablets, laptops, and desktops */\n@media (min-width: 1281px) {\n} /* hi-res laptops and desktops */\n", ""]);
+exports.push([module.i, "/* Format Suggestion Component Container */\n.suggestion-container {\n\twidth: 100%;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tmargin-top: 0;\n}\n.modal {\n\ttop: 30%;\n\tz-index: 1000;\n\tdisplay: block;\n\tmargin: 0 auto;\n\tbackground-color: rgba(12, 222, 12, .9);\n\tpadding: 20px;\n\theight: 25%;\n\ttext-align: center;\n\tbox-sizing: border-box;\n}\n#overlay {\n\tposition: fixed; /* Sit on top of the page content */\n\t/* Hidden by default */\n\twidth: 100vw; /* Full width (cover the whole page) */\n\theight: 100vh; /* Full height (cover the whole page) */\n\ttop: 0;\n\tleft: 0;\n\tright: 0;\n\tbottom: 0;\n\tbackground-color: rgba(\n\t\t0,\n\t\t0,\n\t\t0,\n\t\t0.5\n\t); /* Black background with opacity */\n\tz-index: 2; /* Specify a stack order in case you're using a different order for other elements */\n\tcursor: pointer; /* Add a pointer on hover */\n}\n.modal {\n\ttop: 30%;\n\tz-index: 1000;\n\tdisplay: block;\n\tmargin: 0 auto;\n\tbackground-color: rgba(12, 222, 12, .9);\n\tpadding: 20px;\n\theight: 25%;\n\ttext-align: center;\n\tbox-sizing: border-box;\n}\n.error {\n\tbackground-color: rgba(222, 12, 12, .9);\n\tcolor: white;\n}\n.loading {\n\tbackground-color: rgba(255, 255, 255, 0.8);\n}\n.form-checkbox {\n\tmargin-left: 10px;\n}\n.form-container {\n\tbackground-color: rgba(255, 255, 255, 0.8);\n\n\tpadding: 20px;\n}\n.form-control {\n\twidth: 100%;\n}\nbutton {\n\tmargin-top: 10px;\n}\nlabel {\n\tmargin-top: 10px;\n}\n.error {\n\tfont-style: italic;\n\tcolor: red;\n}\n/* Format Suggestion Form Container*/\n\n/* Loading Styles */\n#loader-icon {\n\tfont-size: 1.5em;\n\tposition: relative;\n\ttop: 12px;\n\tmargin: 10px;\n}\n.glyphicon.spinning {\n\tanimation: spin 1s infinite linear;\n\t-webkit-animation: spin2 1s infinite linear;\n}\n\n@-webkit-keyframes spin {\n\tfrom {\n\t\t-webkit-transform: scale(1) rotate(0deg);\n\t\t        transform: scale(1) rotate(0deg);\n\t}\n\tto {\n\t\t-webkit-transform: scale(1) rotate(360deg);\n\t\t        transform: scale(1) rotate(360deg);\n\t}\n}\n\n@keyframes spin {\n\tfrom {\n\t\t-webkit-transform: scale(1) rotate(0deg);\n\t\t        transform: scale(1) rotate(0deg);\n\t}\n\tto {\n\t\t-webkit-transform: scale(1) rotate(360deg);\n\t\t        transform: scale(1) rotate(360deg);\n\t}\n}\n\n@-webkit-keyframes spin2 {\n\tfrom {\n\t\t-webkit-transform: rotate(0deg);\n\t}\n\tto {\n\t\t-webkit-transform: rotate(360deg);\n\t}\n}\n.container {\n\tpadding-left: 0 !important;\n}\n@media (min-width: 1025px) {\n\t/* Format Suggestion Component Container */\n\t.suggestion-container {\n\t\twidth: 50%;\n\t\tmargin-top: 0;\n\t\tmargin-left: auto;\n\t\tmargin-right: auto;\n\t}\n\tbutton {\n\t\tmargin-top: 10px;\n\t}\n\tlabel {\n\t\tmargin-top: 10px;\n\t}\n\n\t/* Format Suggestion Form Container*/\n\t.form-container {\n\t\tbox-sizing: border-box;\n\t\tbackground-color: rgba(255, 255, 255, 0.8);\n\t\tborder-radius: 10px;\n\t\tpadding: 20px;\n\t}\n} /* big landscape tablets, laptops, and desktops */\n@media (min-width: 1281px) {\n} /* hi-res laptops and desktops */\n", ""]);
 
 // exports
 
@@ -484,7 +484,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/suggestion-form/suggestion-form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"form-group suggestion-container\">\n\n  <div class=\"form-container\">\n    <h3 class=\"suggestion-form-title\">Suggestion Box</h3>\n    <div class=\"btn btn-success\" (click)=\"clearForm()\">Clear Form</div>\n    <form [formGroup]=\"suggestionForm\" (ngSubmit)=\"saveSuggestion(nameInput,suggestionForm.value)\" class=\"suggestion-form-title\">\n      <label for=\"name\">Name</label>\n      <input name=\"name\" #nameInput type=\"text\" (click)=\"selectAll(nameInput)\" class=\"form-control\" formControlName=\"name\" />\n      <p *ngIf=\"!suggestionForm.controls['name'].valid && !suggestionForm.disabled\" class=\"error\">This field is required</p>\n      <label for=\"email\">Email</label>\n      <input name=\"email\" #emailInput type=\"text\" (click)=\"selectAll(emailInput)\" class=\"form-control\" formControlName=\"email\"\n      />\n      <p *ngIf=\"!suggestionForm.controls['email'].valid && !suggestionForm.disabled\" class=\"error\">This field is required</p>\n\n      <label for=\"updateMe\">Contact me with updates?</label>\n      <br/>\n\n      <input name=\"updateMe\" #updateInput type=\"checkbox\" (click)=\"updateMember()\" class=\"form\" value=\"\" formControlName=\"updateMe\"\n      /><span class=\"form-checkbox\">Yes</span><br/>\n      <label class=\"message\" for=\"message\">Message</label>\n      <textarea rows=\"4\" cols=\"50\" name=\"message\" id=\"message\" type=\"text\" class=\"form-control\" formControlName=\"message\" (keypress)=\"onEnter($event,nameInput,suggestionForm.value)\">\n    </textarea>\n      <p *ngIf=\"!suggestionForm.controls['message'].valid && suggestionForm.controls['message'].touched &&  !suggestionForm.disabled\"\n        class=\"error\">This field is required, please enter a suggestion between 10 and 200 characters long.</p>\n\n      <button type=\"submit\" class=\"btn btn-primary\"><span class=\"glyphicon glyphicon-plus\"></span> Add Suggestion</button>\n    </form>\n    <span *ngIf=\"loading\" id=\"loader-icon\" class=\"glyphicon glyphicon-refresh spinning\"></span>\n    <p>{{saveMessage}}</p>\n  </div>\n</div>\n<div id=\"overlay\" *ngIf=\"overlay\"></div>\n<div *ngIf=\"modal\" class=\"modal\">\n  <h3 class=\"modal-title\">{{modalTitle}}</h3>\n  <p class=\"modal-text\">{{modalMessage}}</p>\n</div>"
+module.exports = "<div class=\"form-group suggestion-container\">\n\n  <div class=\"form-container\">\n    <h3 class=\"suggestion-form-title\">Suggestion Box</h3>\n    <div class=\"btn btn-success\" (click)=\"clearForm()\">Clear Form</div>\n    <form [formGroup]=\"suggestionForm\" (ngSubmit)=\"saveSuggestion(nameInput,suggestionForm.value)\" class=\"suggestion-form-title\">\n      <label for=\"name\">Name</label>\n      <input name=\"name\" #nameInput type=\"text\" (click)=\"selectAll(nameInput)\" class=\"form-control\" formControlName=\"name\" />\n      <p *ngIf=\"!suggestionForm.controls['name'].valid && !suggestionForm.disabled\" class=\"error\">This field is required</p>\n      <label for=\"email\">Email</label>\n      <input name=\"email\" #emailInput type=\"text\" (click)=\"selectAll(emailInput)\" class=\"form-control\" formControlName=\"email\"\n      />\n      <p *ngIf=\"!suggestionForm.controls['email'].valid && !suggestionForm.disabled\" class=\"error\">This field is required</p>\n\n      <label for=\"updateMe\">Contact me with updates?</label>\n      <br/>\n\n      <input name=\"updateMe\" #updateInput type=\"checkbox\" (click)=\"updateMember()\" class=\"form\" value=\"\" formControlName=\"updateMe\"\n      /><span class=\"form-checkbox\">Yes</span><br/>\n      <label class=\"message\" for=\"message\">Message</label>\n      <textarea rows=\"4\" cols=\"50\" name=\"message\" id=\"message\" type=\"text\" class=\"form-control\" formControlName=\"message\" (keypress)=\"onEnter($event,nameInput,suggestionForm.value)\">\n    </textarea>\n      <p *ngIf=\"!suggestionForm.controls['message'].valid && suggestionForm.controls['message'].touched &&  !suggestionForm.disabled\"\n        class=\"error\">This field is required, please enter a suggestion between 10 and 200 characters long.</p>\n\n      <button type=\"submit\" class=\"btn btn-primary\"><span class=\"glyphicon glyphicon-plus\"></span> Add Suggestion</button>\n    </form>\n  </div>\n</div>\n<div id=\"overlay\" *ngIf=\"overlay || informUser\"></div>\n<div *ngIf=\"modal\" class=\"modal\">\n  <h3 class=\"modal-title\">{{modalTitle}}</h3>\n  <p class=\"modal-text\">{{modalMessage}}</p>\n</div>\n<div *ngIf=\"error\" class=\"modal error\">\n  <h3 class=\"modal-title\">{{errorTitle}}</h3>\n  <p class=\"modal-text\">{{errorMessage}}</p>\n</div>\n<div *ngIf=\"loading\" class=\"modal loading\">\n  <h3 class=\"modal-title\">\n    <p>{{loadingText}}...</p><i class=\"fa fa-cog fa-spin fa-3x fa-fw\"></i>\n    <span class=\"sr-only\">Loading...</span></h3>\n</div>"
 
 /***/ }),
 
@@ -518,11 +518,15 @@ var SuggestionFormComponent = (function () {
         this.suggestions = [];
         this.name = '(Optional)';
         this.email = '(Optional)';
+        this.error = false;
+        this.errorTitle = '';
+        this.errorMessage = '';
         this.message = '';
         this.promises = [];
         this.saveMessage = '';
         this.disabled = false;
         this.loading = false;
+        this.loadingText = 'Saving';
         this.updateMe = false;
         this.modal = false;
         this.modalMessage = '';
@@ -559,6 +563,7 @@ var SuggestionFormComponent = (function () {
                 console.log(_this.suggestionForm);
                 _this.disableForm();
                 _this.loading = true;
+                _this.overlay = true;
                 //Make some API call to NODE to save to Mongo
                 var newJson = {
                     emailAddress: 'brettreinhard@gmail.com',
@@ -571,21 +576,23 @@ var SuggestionFormComponent = (function () {
                     update: form.updateMe,
                     message: form.message,
                 };
-                _this.suggestionService.saveSuggestion(formJSON_1).subscribe(function (response) {
-                    _this.saveMessage = response.toString();
-                    _this.loading = false;
-                    _this.clearForm();
-                    el.focus();
-                    el.select();
-                    _this.modal = _this.overlay = true;
-                    _this.modalTitle = 'Success!';
-                    _this.modalMessage = formJSON_1.name + ", your suggestion has been submitted";
-                    setTimeout(function () {
-                        _this.modal = _this.overlay = false;
-                    }, 3000);
-                }, function (error) {
-                    console.log(error);
-                });
+                setTimeout(function () {
+                    _this.suggestionService.saveSuggestion(formJSON_1).subscribe(function (response) {
+                        _this.saveMessage = response.toString();
+                        _this.loading = false;
+                        _this.clearForm();
+                        el.focus();
+                        el.select();
+                        _this.modal = _this.overlay = true;
+                        _this.modalTitle = 'Success!';
+                        _this.modalMessage = formJSON_1.name + ", your suggestion has been submitted";
+                        setTimeout(function () {
+                            _this.modal = _this.overlay = false;
+                        }, 3000);
+                    }, function (error) {
+                        console.log(error);
+                    });
+                }, 1500);
                 // this.promises.push(
                 // 	this.http
                 // 		.post(
@@ -693,7 +700,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".suggestion-card {\n\tposition: relative;\n\tbackground-color: rgba(255, 255, 255, 0.8);\n\tpadding: 10px;\n\tborder-radius: 10px;\n\twidth: 90%;\n\tmargin: 10px auto;\n}\n.invalid {\n\tcolor: red;\n}\n.btn.center {\n\twidth: 150px !important;\n}\n.delete-button {\n\tdisplay: inline-block;\n\tposition: absolute;\n\tright: 3%;\n\tbottom: 3%;\n\twidth: 150px;\n}\n.complete-button {\n\tdisplay: inline-block;\n\tposition: absolute;\n\tleft: 3%;\n\tbottom: 3%;\n\twidth: 150px;\n}\n.complete-button::before {\n\tcontent: '';\n\theight: 30em;\n\tbackground-color: black;\n}\n.delete-form {\n\tdisplay: block;\n\twidth: 100%;\n\tpadding-left: 5%;\n\tpadding-right: 5%;\n\tpadding-top: 10px;\n\tpadding-bottom: 10px;\n\tbackground-color: rgba(255, 255, 255, 0.8);\n\tposition: fixed;\n\tz-index: 3;\n\ttop: 20vh;\n\tleft: 0;\n\tright: 0;\n\tmargin: 0 auto;\n}\n.modal {\n\ttop: 30%;\n\tz-index: 1000;\n\tdisplay: block;\n\tmargin: 0 auto;\n\tbackground-color: rgba(12, 222, 12, .9);\n\tpadding: 20px;\n\theight: 25%;\n\ttext-align: center;\n\tbox-sizing: border-box;\n}\n.error {\n\tbackground-color: rgba(222, 12, 12, .9);\n\tcolor: white;\n}\n#overlay {\n\tposition: fixed; /* Sit on top of the page content */\n\t/* Hidden by default */\n\twidth: 100vw; /* Full width (cover the whole page) */\n\theight: 100vh; /* Full height (cover the whole page) */\n\ttop: 0;\n\tleft: 0;\n\tright: 0;\n\tbottom: 0;\n\tbackground-color: rgba(\n\t\t0,\n\t\t0,\n\t\t0,\n\t\t0.5\n\t); /* Black background with opacity */\n\tz-index: 2; /* Specify a stack order in case you're using a different order for other elements */\n\tcursor: pointer; /* Add a pointer on hover */\n}\n.suggestion-error {\n\tdisplay: block;\n\tfloat: none;\n\tleft: 0;\n\tright: 0;\n\twidth: 100%;\n\ttext-align: center;\n}\n\n.center {\n\tmargin: 0 auto;\n\tleft: 0;\n\tright: 0;\n\tdisplay: block;\n\twidth: 20%;\n\tposition: relative;\n\ttext-align: center;\n}\n.suggestion-title {\n\tpadding: 20px;\n\tborder-radius: 10px;\n\tmin-width: 25%;\n\tmax-width: 40%;\n\tmargin: 5px auto 20px auto;\n\ttext-align: center;\n\tbackground-color: rgba(255, 255, 255, 0.8);\n}\n.suggestion-name {\n\tcolor: black;\n\tfont-style: italic;\n}\n.suggestion-message {\n\tcolor: black;\n\tfont-style: italic;\n}\n\n@media (min-width: 1025px) {\n\t.suggestion-card {\n\t\twidth: 50%;\n\t}\n\t.delete-form {\n\t\twidth: 50%;\n\t\tmargin: 0 auto;\n\t}\n} /* big landscape tablets, laptops, and desktops */\n@media (min-width: 1281px) {\n} /* hi-res laptops and desktops */\n\n/* Loading Styles */\n#loader-icon {\n\tcolor: white;\n\tfont-size: 3em;\n}\n.glyphicon.spinning {\n\tanimation: spin 1s infinite linear;\n\t-webkit-animation: spin2 1s infinite linear;\n}\n\n@-webkit-keyframes spin {\n\tfrom {\n\t\t-webkit-transform: scale(1) rotate(0deg);\n\t\t        transform: scale(1) rotate(0deg);\n\t}\n\tto {\n\t\t-webkit-transform: scale(1) rotate(360deg);\n\t\t        transform: scale(1) rotate(360deg);\n\t}\n}\n\n@keyframes spin {\n\tfrom {\n\t\t-webkit-transform: scale(1) rotate(0deg);\n\t\t        transform: scale(1) rotate(0deg);\n\t}\n\tto {\n\t\t-webkit-transform: scale(1) rotate(360deg);\n\t\t        transform: scale(1) rotate(360deg);\n\t}\n}\n\n@-webkit-keyframes spin2 {\n\tfrom {\n\t\t-webkit-transform: rotate(0deg);\n\t}\n\tto {\n\t\t-webkit-transform: rotate(360deg);\n\t}\n}\n", ""]);
+exports.push([module.i, ".suggestion-card {\n\tposition: relative;\n\tbackground-color: rgba(255, 255, 255, 0.8);\n\tpadding: 10px;\n\tborder-radius: 10px;\n\twidth: 90%;\n\tmargin: 10px auto;\n}\n.left {\n\tpadding-left: 0;\n}\nlabel + p {\n\tfont-style: italic;\n}\nlabel {\n\tfont-size: 1.2em;\n}\n.invalid {\n\tcolor: red;\n}\n.btn {\n\twidth: 80px !important;\n\toverflow: hidden;\n\ttext-overflow: ellipsis;\n\twhite-space: nowrap;\n}\n.right {\n\tmargin-left: 0;\n\tmargin-right: 0;\n}\n.right::before {\n\tcontent: \"\";\n\tdisplay: block;\n\theight: 1px;\n\twidth: 100%;\n\tmargin-bottom: 10px;\n\tbackground-color: rgba(0, 0, 0, 0.5);\n}\n.delete-button {\n\tdisplay: inline-block;\n\tposition: absolute;\n\tright: 3%;\n\tbottom: 3%;\n\twidth: 150px;\n}\n.complete-button {\n\tdisplay: inline-block;\n\tposition: absolute;\n\tleft: 3%;\n\tbottom: 3%;\n\twidth: 150px;\n}\n.update-button {\n\tdisplay: inline-block;\n\tmargin: 0 auto;\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\tbottom: 3%;\n\twidth: 150px;\n}\n.complete-button::before {\n\tcontent: '';\n\theight: 30em;\n\tbackground-color: black;\n}\n\n.delete-form {\n\tdisplay: block;\n\twidth: 100%;\n\tpadding-left: 5%;\n\tpadding-right: 5%;\n\tpadding-top: 10px;\n\tpadding-bottom: 10px;\n\tbackground-color: rgba(255, 255, 255, 0.8);\n\tposition: fixed;\n\tz-index: 3;\n\ttop: 20vh;\n\tleft: 0;\n\tright: 0;\n\tmargin: 0 auto;\n}\n.modal {\n\ttop: 30%;\n\tz-index: 1000;\n\tdisplay: block;\n\tmargin: 0 auto;\n\tbackground-color: rgba(12, 222, 12, .9);\n\tpadding: 20px;\n\theight: 25%;\n\ttext-align: center;\n\tbox-sizing: border-box;\n}\n.error {\n\tbackground-color: rgba(222, 12, 12, .9);\n\tcolor: white;\n}\n.loading {\n\tbackground-color: rgba(255, 255, 255, 0.8);\n}\n#overlay {\n\tposition: fixed; /* Sit on top of the page content */\n\t/* Hidden by default */\n\twidth: 100vw; /* Full width (cover the whole page) */\n\theight: 100vh; /* Full height (cover the whole page) */\n\ttop: 0;\n\tleft: 0;\n\tright: 0;\n\tbottom: 0;\n\tbackground-color: rgba(\n\t\t0,\n\t\t0,\n\t\t0,\n\t\t0.5\n\t); /* Black background with opacity */\n\tz-index: 2; /* Specify a stack order in case you're using a different order for other elements */\n\tcursor: pointer; /* Add a pointer on hover */\n}\n.suggestion-error {\n\tdisplay: block;\n\tfloat: none;\n\tleft: 0;\n\tright: 0;\n\twidth: 100%;\n\ttext-align: center;\n}\n\n.center {\n\tmargin: 0 auto;\n\tleft: 0;\n\tright: 0;\n\tdisplay: block;\n\twidth: 20%;\n\tposition: relative;\n\ttext-align: center;\n}\n.suggestion-title {\n\tpadding: 20px;\n\tborder-radius: 10px;\n\tmin-width: 25%;\n\tmax-width: 50%;\n\tmargin: 5px auto 20px auto;\n\ttext-align: center;\n\tbackground-color: rgba(255, 255, 255, 0.8);\n}\n.suggestion-name {\n\tcolor: black;\n\tfont-style: italic;\n}\n.suggestion-message {\n\tcolor: black;\n\tfont-style: italic;\n}\n@media (min-width: 500px) {\n\t.btn {\n\t\twidth: 100px !important;\n\t}\n}\n@media (max-width: 900px) {\n\t.btn {\n\t\tpadding-left: 0;\n\t\tpadding-right: 0;\n\t\tfont-size: 80%;\n\t}\n}\n@media (min-width: 900px) {\n\t.right::before {\n\t\tcontent: none;\n\t}\n\t.btn {\n\t\twidth: 150px !important;\n\t\toverflow: hidden;\n\t\ttext-overflow: ellipsis;\n\t\twhite-space: nowrap;\n\t}\n}\n@media (min-width: 1025px) {\n\t.suggestion-card {\n\t\tposition: relative;\n\t\tbackground-color: rgba(255, 255, 255, 0.8);\n\t\tpadding: 10px;\n\t\tborder-radius: 10px;\n\t\twidth: 90%;\n\t\tmargin: 10px auto;\n\t\theight: 150px;\n\t}\n\t.left {\n\t\tposition: relative;\n\t\ttext-align: center;\n\t}\n\t.content-container {\n\t\tposition: relative;\n\n\t\ttext-align: center;\n\t}\n\t.right {\n\t\tposition: relative;\n\n\t\ttext-align: center;\n\t}\n\t.suggestion-card {\n\t\twidth: 50%;\n\t}\n\t.delete-form {\n\t\twidth: 50%;\n\t\tmargin: 0 auto;\n\t}\n} /* big landscape tablets, laptops, and desktops */\n@media (min-width: 1281px) {\n} /* hi-res laptops and desktops */\n\n/* Loading Styles */\n#loader-icon {\n\tcolor: white;\n\tfont-size: 3em;\n}\n.glyphicon.spinning {\n\tanimation: spin 1s infinite linear;\n\t-webkit-animation: spin2 1s infinite linear;\n}\n\n@-webkit-keyframes spin {\n\tfrom {\n\t\t-webkit-transform: scale(1) rotate(0deg);\n\t\t        transform: scale(1) rotate(0deg);\n\t}\n\tto {\n\t\t-webkit-transform: scale(1) rotate(360deg);\n\t\t        transform: scale(1) rotate(360deg);\n\t}\n}\n\n@keyframes spin {\n\tfrom {\n\t\t-webkit-transform: scale(1) rotate(0deg);\n\t\t        transform: scale(1) rotate(0deg);\n\t}\n\tto {\n\t\t-webkit-transform: scale(1) rotate(360deg);\n\t\t        transform: scale(1) rotate(360deg);\n\t}\n}\n\n@-webkit-keyframes spin2 {\n\tfrom {\n\t\t-webkit-transform: rotate(0deg);\n\t}\n\tto {\n\t\t-webkit-transform: rotate(360deg);\n\t}\n}\n", ""]);
 
 // exports
 
@@ -706,7 +713,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/suggestion-list/suggestion-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"suggestion-container\">\n    <h4 class=\"suggestion-title\">\n        Suggestions: </h4>\n    <div *ngIf=\"suggestions.length\" class=\"btn btn-success center\" (click)=\"loadSuggestions()\">Refresh</div>\n\n    <div *ngFor=\"let sugs of suggestions; let i = index\">\n        <div class=\"suggestion-card form-group\" #thisel>\n            <label for=\"name\">Name: </label>\n            <p class=\"suggestion-name\" for=\"name\">{{sugs.name}}</p>\n            <label for=\"message\">Message: </label>\n            <p class=\"suggestion-message\">{{sugs.message}}</p>\n            <label for=\"keepUpdated\">Keep Updated:</label>\n            <p class=\"suggestion-keep-updated\">{{sugs.update?\"Keep Updated\":\"No\"}}</p>\n            <label for=\"email\">Email:</label>\n            <p class=\"suggestion-email\">{{sugs.email}}</p>\n            <br><br>\n            <div class=\"btn btn-success complete-button\" (click)=\"showForm(i,sugs.update)\">Mark Completed</div>\n            <div class=\"btn btn-danger delete-button\" (click)=\"showForm(i,sugs.update)\">Delete</div>\n        </div>\n    </div>\n    <div class=\"loading center form-group\">\n\n        <span *ngIf=\"loading\" id=\"loader-icon\" class=\"glyphicon glyphicon-refresh spinning center\"></span>\n    </div>\n    <div *ngIf=\"badPassword\" class=\"suggestion-card\">\n        <label for=\"error\" class=\"suggestion-error\">{{errorMessage}}</label>\n        <div *ngIf=\"!suggestions.length\" class=\"btn btn-danger center\" (click)=\"loadSuggestions()\">Try Again</div>\n\n    </div>\n    <div *ngIf=\"informUser\" class=\"delete-form\">\n        <h3>Update the Member</h3>\n        <form [formGroup]=\"informUserForm\" (ngSubmit)=\"sendEmail(informUserForm.value)\" class=\"suggestion-form-title\">\n            <label for=\"subject\">Subject</label>\n            <input name=\"subject\" #subjectInput type=\"text\" (click)=\"selectAll(subjectInput)\" class=\"form-control\" formControlName=\"subject\"\n            />\n            <p *ngIf=\"!informUserForm.controls['subject'].valid && !informUserForm.disabled\" class=\"invalid\">This field is required</p>\n\n\n            <label class=\"message\" for=\"message\">Message</label>\n            <textarea rows=\"4\" cols=\"50\" name=\"message\" id=\"message\" type=\"text\" class=\"form-control\" formControlName=\"message\" (keypress)=\"onEnter($event,informUserForm.value)\">\n    </textarea>\n            <p *ngIf=\"!informUserForm.controls['message'].valid && informUserForm.controls['message'].touched &&  !informUserForm.disabled\"\n                class=\"invalid\">This field is required, please enter a suggestion between 10 and 300 characters long.</p>\n\n            <button type=\"submit\" class=\"btn btn-primary\"><span class=\"glyphicon glyphicon-plus\"></span>Send Update</button>\n\n            <div (click)=\"closeForm()\" class=\"btn btn-danger\"><span class=\"glyphicon glyphicon-plus\"></span> Cancel</div>\n        </form>\n    </div>\n\n</div>\n<div id=\"overlay\" *ngIf=\"overlay || informUser\"></div>\n<div *ngIf=\"modal\" class=\"modal\">\n    <h3 class=\"modal-title\">{{modalTitle}}</h3>\n    <p class=\"modal-text\">{{modalMessage}}</p>\n</div>\n<div *ngIf=\"error\" class=\"modal error\">\n    <h3 class=\"modal-title\">{{errorTitle}}</h3>\n    <p class=\"modal-text\">{{errorMessage}}</p>\n</div>"
+module.exports = "<div class=\"suggestion-container\">\n    <h4 class=\"suggestion-title\">\n        Suggestions: </h4>\n    <div *ngIf=\"suggestions.length\" class=\"btn btn-success center\" (click)=\"loadSuggestions()\">Refresh</div>\n\n    <div *ngFor=\"let sugs of suggestions; let i = index\">\n        <div class=\"suggestion-card form-group\" #thisel>\n            <div class=\"content-container\">\n                <div class=\"left col-md-6\">\n                    <div class=\"col-md-6\">\n                        <label for=\"name\">Name: </label>\n                        <p class=\"suggestion-name\" for=\"name\">{{sugs.name}}</p>\n                        <label for=\"email\">Email:</label>\n                        <p class=\"suggestion-email\">{{sugs.email}}</p>\n                    </div>\n                    <div class=\"col-md-6\"><label for=\"keepUpdated\">Keep Updated:</label>\n                        <p class=\"suggestion-keep-updated\">{{sugs.update?\"Yes\":\"No\"}}</p>\n                    </div>\n\n\n                </div>\n                <div class=\"right col-md-6\">\n                    <label for=\"message\">Message: </label>\n                    <p class=\"suggestion-message\">{{sugs.message}}</p>\n\n                </div>\n            </div>\n\n            <br><br>\n            <div class=\"btn btn-success complete-button\" (click)=\"showForm(i,sugs.update,true)\"><i class=\"fa fa-check-circle\" aria-hidden=\"true\"></i> Completed</div>\n            <div *ngIf=\"sugs.update\" class=\"btn btn-warning update-button\" (click)=\"showForm(i,sugs.update,false)\"><i class=\"fa fa-refresh\" aria-hidden=\"true\"></i> Update</div>\n            <div class=\"btn btn-danger delete-button\" (click)=\"showForm(i,sugs.update,true)\"><i class=\"fa fa-times-circle\" aria-hidden=\"true\"></i> Delete</div>\n        </div>\n    </div>\n\n    <div *ngIf=\"badPassword\" class=\"suggestion-card\">\n        <label for=\"error\" class=\"suggestion-error\">{{errorMessage}}</label>\n        <div *ngIf=\"!suggestions.length\" class=\"btn btn-danger center\" (click)=\"loadSuggestions()\">Try Again</div>\n\n    </div>\n    <div *ngIf=\"informUser\" class=\"delete-form\">\n        <h3>Update the Member</h3>\n        <form [formGroup]=\"informUserForm\" (ngSubmit)=\"sendEmail(informUserForm.value)\" class=\"suggestion-form-title\">\n            <label for=\"subject\">Subject</label>\n            <input name=\"subject\" #subjectInput type=\"text\" (click)=\"selectAll(subjectInput)\" class=\"form-control\" formControlName=\"subject\"\n            />\n            <p *ngIf=\"!informUserForm.controls['subject'].valid && !informUserForm.disabled\" class=\"invalid\">This field is required</p>\n\n\n            <label class=\"message\" for=\"message\">Message</label>\n            <textarea rows=\"4\" cols=\"50\" name=\"message\" id=\"message\" type=\"text\" class=\"form-control\" formControlName=\"message\" (keypress)=\"onEnter($event,informUserForm.value)\">\n    </textarea>\n            <p *ngIf=\"!informUserForm.controls['message'].valid && informUserForm.controls['message'].touched &&  !informUserForm.disabled\"\n                class=\"invalid\">This field is required, please enter a suggestion between 10 and 300 characters long.</p>\n\n            <button type=\"submit\" class=\"btn btn-primary\"><span class=\"glyphicon glyphicon-plus\"></span>Send Update</button>\n\n            <div (click)=\"closeForm()\" class=\"btn btn-danger\"><span class=\"glyphicon glyphicon-plus\"></span> Cancel</div>\n        </form>\n    </div>\n\n</div>\n<div id=\"overlay\" *ngIf=\"overlay || informUser\"></div>\n<div *ngIf=\"modal\" class=\"modal\">\n    <h3 class=\"modal-title\">{{modalTitle}}</h3>\n    <p class=\"modal-text\">{{modalMessage}}</p>\n</div>\n<div *ngIf=\"error\" class=\"modal error\">\n    <h3 class=\"modal-title\">{{errorTitle}}</h3>\n    <p class=\"modal-text\">{{errorMessage}}</p>\n</div>\n<div *ngIf=\"loading\" class=\"modal loading\">\n    <h3 class=\"modal-title\">\n        <p>{{loadingText}}...</p><i class=\"fa fa-cog fa-spin fa-3x fa-fw\"></i>\n        <span class=\"sr-only\">Loading...</span></h3>\n</div>"
 
 /***/ }),
 
@@ -741,11 +748,13 @@ var SuggestionListComponent = (function () {
         this.fb = fb;
         this.suggestionService = suggestionService;
         this.emailService = emailService;
+        this.deleteNow = false;
         this.badPassword = false;
         this.error = false;
         this.errorMessage = '';
         this.suggestions = [];
         this.loading = false;
+        this.loadingText = 'Loading';
         this.informUser = false;
         this.currentSuggestionIndex = null;
         this.overlay = false;
@@ -754,7 +763,9 @@ var SuggestionListComponent = (function () {
         this.modalTitle = '';
         this.errorTitle = '';
         this.loadSuggestions = function () {
+            _this.badPassword = false;
             _this.loading = true;
+            _this.overlay = true;
             _this.error = false;
             // Bad practice do not actually use this on real web pages
             var password = prompt('Please enter the password');
@@ -762,8 +773,11 @@ var SuggestionListComponent = (function () {
                 _this.suggestionService.getSuggestions().subscribe(function (response) {
                     // console.log(response.json());
                     // this.suggestions = response.json().suggestions;
-                    _this.error = false;
-                    _this.loading = false;
+                    setTimeout(function () {
+                        _this.error = false;
+                        _this.loading = false;
+                        _this.overlay = false;
+                    }, 1000);
                     var res = response.json();
                     console.log(res);
                     var arrSugs = [];
@@ -786,14 +800,18 @@ var SuggestionListComponent = (function () {
             }
             else {
                 _this.suggestions = [];
-                _this.loading = false;
+                setTimeout(function () {
+                    _this.loading = false;
+                    _this.overlay = false;
+                }, 1000);
                 _this.badPassword = true;
                 _this.errorMessage =
                     'You have entered an incorrect password, please refresh and try again';
             }
         };
-        this.showForm = function (index, sendEmail) {
+        this.showForm = function (index, sendEmail, deleteSuggestion) {
             if (sendEmail) {
+                _this.deleteNow = deleteSuggestion;
                 _this.overlay = sendEmail;
                 _this.currentSuggestionIndex = index;
                 _this.informUser = sendEmail;
@@ -843,20 +861,22 @@ var SuggestionListComponent = (function () {
         };
         this.sendEmail = function (vals) {
             if (_this.informUserForm.valid) {
-                var index = _this.currentSuggestionIndex;
-                console.log(index, vals);
-                var suggestionDetails_1 = _this.suggestions[index];
+                var index_1 = _this.currentSuggestionIndex;
+                console.log(index_1, vals);
+                var suggestionDetails_1 = _this.suggestions[index_1];
                 var emailJSON_1 = {
                     email: suggestionDetails_1.email,
                     name: suggestionDetails_1.name,
                     message: vals.message,
                     subject: vals.subject,
                 };
-                _this.emailService.sendEmail(emailJSON_1).subscribe(function (response) {
+                _this.loading = true;
+                setTimeout(function () {
                     console.log(emailJSON_1);
                     console.log(suggestionDetails_1);
                     _this.informUser = _this.overlay = false;
                     _this.modal = true;
+                    _this.loading = false;
                     _this.overlay = true;
                     _this.modalMessage = "You have successfully sent the update to " + emailJSON_1.name;
                     _this.modalTitle = 'Success!';
@@ -866,10 +886,11 @@ var SuggestionListComponent = (function () {
                         _this.informUserForm.reset({
                             subject: 'Update',
                         });
+                        if (_this.deleteNow) {
+                            _this.deleteSuggestion(index_1);
+                        }
                     }, 3000);
-                }, function (error) {
-                    _this.showError('Error', error);
-                });
+                }, 1500);
             }
             else {
                 _this.touchForm();
@@ -877,11 +898,27 @@ var SuggestionListComponent = (function () {
         };
         this.deleteSuggestion = function (index) {
             console.log(_this.suggestions[index].sugKey);
+            var name = _this.suggestions[index].name;
+            _this.loadingText = 'Deleting';
+            _this.loading = true;
+            _this.overlay = true;
             _this.suggestionService
                 .deleteSuggestion(_this.suggestions[index].sugKey)
                 .subscribe(function (response) {
-                _this.suggestions.splice(index, 1);
-            }, function (error) { });
+                setTimeout(function () {
+                    _this.suggestions.splice(index, 1);
+                    _this.modal = true;
+                    _this.modalMessage = "Successfully deleted suggestion by " + name;
+                    _this.loading = false;
+                    setTimeout(function () {
+                        _this.modal = false;
+                        _this.overlay = false;
+                        _this.loadingText = 'Loading';
+                    }, 2000);
+                }, 3000);
+            }, function (error) {
+                _this.showError('Error', error);
+            });
         };
         this.informUserForm = fb.group({
             subject: ['Update', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* Validators */].required])],
