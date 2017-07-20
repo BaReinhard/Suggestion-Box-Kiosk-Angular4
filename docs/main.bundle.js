@@ -1564,7 +1564,7 @@ webpackJsonp(
 										_this.loading = false;
 									},
 								);
-							}, 3000);
+							}, 1500);
 						} else {
 							_this.suggestions = [];
 							setTimeout(function() {
