@@ -25,12 +25,19 @@
 
       <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add Suggestion</button>
     </form>
-    <span *ngIf="loading" id="loader-icon" class="glyphicon glyphicon-refresh spinning"></span>
-    <p>{{saveMessage}}</p>
   </div>
 </div>
-<div id="overlay" *ngIf="overlay"></div>
+<div id="overlay" *ngIf="overlay || informUser"></div>
 <div *ngIf="modal" class="modal">
   <h3 class="modal-title">{{modalTitle}}</h3>
   <p class="modal-text">{{modalMessage}}</p>
+</div>
+<div *ngIf="error" class="modal error">
+  <h3 class="modal-title">{{errorTitle}}</h3>
+  <p class="modal-text">{{errorMessage}}</p>
+</div>
+<div *ngIf="loading" class="modal loading">
+  <h3 class="modal-title">
+    <p>{{loadingText}}...</p><i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+    <span class="sr-only">Loading...</span></h3>
 </div>

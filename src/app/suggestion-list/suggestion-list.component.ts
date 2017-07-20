@@ -13,11 +13,13 @@ import { EmailService } from '../email/email.service';
 })
 export class SuggestionListComponent implements OnInit {
 	informUserForm: FormGroup;
+	deleteNow: boolean = false;
 	badPassword: boolean = false;
 	error: boolean = false;
 	errorMessage: string = '';
 	suggestions: Array<any> = [];
 	loading: boolean = false;
+	loadingText: string = 'Loading';
 	informUser: boolean = false;
 	currentSuggestionIndex: number = null;
 	overlay: boolean = false;
@@ -49,6 +51,7 @@ export class SuggestionListComponent implements OnInit {
 
 	loadSuggestions = () => {
 		this.loading = true;
+		this.overlay = true;
 		this.error = false;
 		// Bad practice do not actually use this on real web pages
 		let password = prompt('Please enter the password');
@@ -57,8 +60,11 @@ export class SuggestionListComponent implements OnInit {
 				response => {
 					// console.log(response.json());
 					// this.suggestions = response.json().suggestions;
-					this.error = false;
-					this.loading = false;
+					setTimeout(() => {
+						this.error = false;
+						this.loading = false;
+						this.overlay = false;
+					}, 1000);
 
 					let res = response.json();
 					console.log(res);
@@ -83,14 +89,22 @@ export class SuggestionListComponent implements OnInit {
 			);
 		} else {
 			this.suggestions = [];
-			this.loading = false;
+			setTimeout(() => {
+				this.loading = false;
+				this.overlay = false;
+			}, 1000);
 			this.badPassword = true;
 			this.errorMessage =
 				'You have entered an incorrect password, please refresh and try again';
 		}
 	};
-	showForm = (index: number, sendEmail: boolean) => {
+	showForm = (
+		index: number,
+		sendEmail: boolean,
+		deleteSuggestion: boolean,
+	) => {
 		if (sendEmail) {
+			this.deleteNow = deleteSuggestion;
 			this.overlay = sendEmail;
 			this.currentSuggestionIndex = index;
 			this.informUser = sendEmail;
@@ -148,22 +162,29 @@ export class SuggestionListComponent implements OnInit {
 				message: vals.message,
 				subject: vals.subject,
 			};
+			this.loading = true;
 			this.emailService.sendEmail(emailJSON).subscribe(
 				response => {
-					console.log(emailJSON);
-					console.log(suggestionDetails);
-					this.informUser = this.overlay = false;
-					this.modal = true;
-					this.overlay = true;
-					this.modalMessage = `You have successfully sent the update to ${emailJSON.name}`;
-					this.modalTitle = 'Success!';
 					setTimeout(() => {
-						this.modal = false;
-						this.overlay = false;
-						this.informUserForm.reset({
-							subject: 'Update',
-						});
-					}, 3000);
+						console.log(emailJSON);
+						console.log(suggestionDetails);
+						this.informUser = this.overlay = false;
+						this.modal = true;
+						this.loading = false;
+						this.overlay = true;
+						this.modalMessage = `You have successfully sent the update to ${emailJSON.name}`;
+						this.modalTitle = 'Success!';
+						setTimeout(() => {
+							this.modal = false;
+							this.overlay = false;
+							this.informUserForm.reset({
+								subject: 'Update',
+							});
+							if (this.deleteNow) {
+								this.deleteSuggestion(index);
+							}
+						}, 3000);
+					}, 1500);
 				},
 				error => {
 					this.showError('Error', error);
@@ -175,13 +196,29 @@ export class SuggestionListComponent implements OnInit {
 	};
 	deleteSuggestion = index => {
 		console.log(this.suggestions[index].sugKey);
+		let name = this.suggestions[index].name;
+		this.loadingText = 'Deleting';
+		this.loading = true;
+		this.overlay = true;
 		this.suggestionService
 			.deleteSuggestion(this.suggestions[index].sugKey)
 			.subscribe(
 				response => {
-					this.suggestions.splice(index, 1);
+					setTimeout(() => {
+						this.suggestions.splice(index, 1);
+						this.modal = true;
+						this.modalMessage = `Successfully deleted suggestion by ${name}`;
+						this.loading = false;
+						setTimeout(() => {
+							this.modal = false;
+							this.overlay = false;
+							this.loadingText = 'Loading';
+						}, 2000);
+					}, 3000);
 				},
-				error => {},
+				error => {
+					this.showError('Error', error);
+				},
 			);
 	};
 }

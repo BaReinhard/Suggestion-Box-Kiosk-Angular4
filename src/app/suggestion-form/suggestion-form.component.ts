@@ -16,11 +16,15 @@ export class SuggestionFormComponent implements OnInit {
 	suggestions: Object = [];
 	name: string = '(Optional)';
 	email: string = '(Optional)';
+	error: boolean = false;
+	errorTitle: string = '';
+	errorMessage: string = '';
 	message: string = '';
 	promises: Array<any> = [];
 	saveMessage: string = '';
 	disabled: boolean = false;
 	loading: boolean = false;
+	loadingText: string = 'Saving';
 	updateMe: boolean = false;
 	modal: boolean = false;
 	modalMessage: string = '';
@@ -80,6 +84,7 @@ export class SuggestionFormComponent implements OnInit {
 			console.log(this.suggestionForm);
 			this.disableForm();
 			this.loading = true;
+			this.overlay = true;
 			//Make some API call to NODE to save to Mongo
 
 			let newJson = {
@@ -97,24 +102,26 @@ export class SuggestionFormComponent implements OnInit {
 				update: form.updateMe,
 				message: form.message,
 			};
-			this.suggestionService.saveSuggestion(formJSON).subscribe(
-				response => {
-					this.saveMessage = response.toString();
-					this.loading = false;
-					this.clearForm();
-					el.focus();
-					el.select();
-					this.modal = this.overlay = true;
-					this.modalTitle = 'Success!';
-					this.modalMessage = `${formJSON.name}, your suggestion has been submitted`;
-					setTimeout(() => {
-						this.modal = this.overlay = false;
-					}, 3000);
-				},
-				error => {
-					console.log(error);
-				},
-			);
+			setTimeout(() => {
+				this.suggestionService.saveSuggestion(formJSON).subscribe(
+					response => {
+						this.saveMessage = response.toString();
+						this.loading = false;
+						this.clearForm();
+						el.focus();
+						el.select();
+						this.modal = this.overlay = true;
+						this.modalTitle = 'Success!';
+						this.modalMessage = `${formJSON.name}, your suggestion has been submitted`;
+						setTimeout(() => {
+							this.modal = this.overlay = false;
+						}, 3000);
+					},
+					error => {
+						console.log(error);
+					},
+				);
+			}, 1500);
 
 			// this.promises.push(
 			// 	this.http
