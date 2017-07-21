@@ -257,6 +257,12 @@ var EmailService = (function () {
             headers: this.headers,
         });
     };
+    EmailService.prototype.sendEmailOnSubmit = function (email) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({
+            'Content-Type': 'application/json',
+        });
+        return this.http.post('https://prod-14.centralus.logic.azure.com:443/workflows/e09c9383ed9d4e389d85682801a3bb1b/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=vcxi3TML3gIg2vFfKzefUCM7HXugEyWP72dhMdeTKvQ', email, { headers: this.headers });
+    };
     return EmailService;
 }());
 EmailService = __decorate([
@@ -495,6 +501,7 @@ module.exports = "<div class=\"form-group suggestion-container\">\n\n  <div clas
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__suggestion_form_service__ = __webpack_require__("../../../../../src/app/suggestion-form/suggestion-form.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__email_email_service__ = __webpack_require__("../../../../../src/app/email/email.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuggestionFormComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -508,11 +515,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var SuggestionFormComponent = (function () {
-    function SuggestionFormComponent(fb, suggestionService) {
+    function SuggestionFormComponent(fb, suggestionService, emailService) {
         var _this = this;
         this.fb = fb;
         this.suggestionService = suggestionService;
+        this.emailService = emailService;
         this.description = '';
         this.formName = '';
         this.suggestions = [];
@@ -578,6 +587,11 @@ var SuggestionFormComponent = (function () {
                 };
                 setTimeout(function () {
                     _this.suggestionService.saveSuggestion(formJSON_1).subscribe(function (response) {
+                        _this.emailService.sendEmailOnSubmit(formJSON_1).subscribe(function (response) {
+                            console.log(response);
+                        }, function (error) {
+                            console.log(response);
+                        });
                         _this.saveMessage = response.toString();
                         _this.loading = false;
                         _this.clearForm();
@@ -593,17 +607,6 @@ var SuggestionFormComponent = (function () {
                         console.log(error);
                     });
                 }, 1500);
-                // this.promises.push(
-                // 	this.http
-                // 		.post(
-                // 			'https://prod-05.centralus.logic.azure.com:443/workflows/fa37615468aa4ffd9da2ba549e1ce8b8/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=aA49qZ8e59z65oZm152xWL9bn4CRe9vJRLR8bYrezoc',
-                // 			newJson,
-                // 		)
-                // 		.toPromise()
-                // 		.then(response => {
-                // 			console.log(response);
-                // 		}),
-                // );
             }
             else {
                 _this.touchForm();
@@ -641,10 +644,10 @@ SuggestionFormComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/suggestion-form/suggestion-form.component.html"),
         styles: [__webpack_require__("../../../../../src/app/suggestion-form/suggestion-form.component.css")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__suggestion_form_service__["a" /* SuggestionFormService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__suggestion_form_service__["a" /* SuggestionFormService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__suggestion_form_service__["a" /* SuggestionFormService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__suggestion_form_service__["a" /* SuggestionFormService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__email_email_service__["a" /* EmailService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__email_email_service__["a" /* EmailService */]) === "function" && _c || Object])
 ], SuggestionFormComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=suggestion-form.component.js.map
 
 /***/ }),
@@ -676,7 +679,7 @@ var SuggestionFormService = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({
             'Content-Type': 'application/json',
         });
-        return this.http.post('https://suggestion-prototype.firebaseio.com/suggestion.json', suggestion, {
+        return this.http.post('https://suggestionbox-b3b3d.firebaseio.com/suggestion.json', suggestion, {
             headers: headers,
         });
     };
@@ -985,10 +988,10 @@ var SuggestionListService = (function () {
     }
     SuggestionListService.prototype.ngOnInit = function () { };
     SuggestionListService.prototype.getSuggestions = function () {
-        return this.http.get('https://suggestion-prototype.firebaseio.com/suggestion.json', { headers: this.headers });
+        return this.http.get('https://suggestionbox-b3b3d.firebaseio.com/suggestion.json', { headers: this.headers });
     };
     SuggestionListService.prototype.deleteSuggestion = function (key) {
-        return this.http.delete("https://suggestion-prototype.firebaseio.com/suggestion/" + key + ".json", { headers: this.headers });
+        return this.http.delete("https://suggestionbox-b3b3d.firebaseio.com/suggestion/" + key + ".json", { headers: this.headers });
     };
     return SuggestionListService;
 }());

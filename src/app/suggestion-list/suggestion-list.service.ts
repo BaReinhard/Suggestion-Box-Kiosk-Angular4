@@ -11,13 +11,13 @@ export class SuggestionListService {
 	ngOnInit() {}
 	getSuggestions() {
 		return this.http.get(
-			'https://suggestion-prototype.firebaseio.com/suggestion.json',
+			'https://suggestionbox-b3b3d.firebaseio.com/suggestion.json',
 			{ headers: this.headers },
 		);
 	}
 	deleteSuggestion(key) {
 		return this.http.delete(
-			`https://suggestion-prototype.firebaseio.com/suggestion/${key}.json`,
+			`https://suggestionbox-b3b3d.firebaseio.com/suggestion/${key}.json`,
 			{ headers: this.headers },
 		);
 	}

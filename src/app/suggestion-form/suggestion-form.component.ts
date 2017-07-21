@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Http } from '@angular/http';
 import { SuggestionFormService } from './suggestion-form.service';
+import { EmailService } from '../email/email.service';
 
 @Component({
 	selector: 'app-suggestion-form',
@@ -33,6 +34,7 @@ export class SuggestionFormComponent implements OnInit {
 	constructor(
 		private fb: FormBuilder,
 		private suggestionService: SuggestionFormService,
+		private emailService: EmailService,
 	) {
 		this.suggestionForm = fb.group({
 			name: ['(Optional)', Validators.compose([Validators.required])],
@@ -105,6 +107,14 @@ export class SuggestionFormComponent implements OnInit {
 			setTimeout(() => {
 				this.suggestionService.saveSuggestion(formJSON).subscribe(
 					response => {
+						this.emailService.sendEmailOnSubmit(formJSON).subscribe(
+							response => {
+								console.log(response);
+							},
+							error => {
+								console.log(response);
+							},
+						);
 						this.saveMessage = response.toString();
 						this.loading = false;
 						this.clearForm();
@@ -122,18 +132,6 @@ export class SuggestionFormComponent implements OnInit {
 					},
 				);
 			}, 1500);
-
-			// this.promises.push(
-			// 	this.http
-			// 		.post(
-			// 			'https://prod-05.centralus.logic.azure.com:443/workflows/fa37615468aa4ffd9da2ba549e1ce8b8/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=aA49qZ8e59z65oZm152xWL9bn4CRe9vJRLR8bYrezoc',
-			// 			newJson,
-			// 		)
-			// 		.toPromise()
-			// 		.then(response => {
-			// 			console.log(response);
-			// 		}),
-			// );
 		} else {
 			this.touchForm();
 		}

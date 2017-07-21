@@ -11,7 +11,7 @@ export class SuggestionFormService {
 		});
 
 		return this.http.post(
-			'https://suggestion-prototype.firebaseio.com/suggestion.json',
+			'https://suggestionbox-b3b3d.firebaseio.com/suggestion.json',
 			suggestion,
 			{
 				headers: headers,
