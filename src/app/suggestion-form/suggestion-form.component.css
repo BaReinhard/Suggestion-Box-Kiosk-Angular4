@@ -69,7 +69,7 @@ button {
 label {
 	margin-top: 10px;
 }
-.error {
+.error-text {
 	font-style: italic;
 	color: red;
 }

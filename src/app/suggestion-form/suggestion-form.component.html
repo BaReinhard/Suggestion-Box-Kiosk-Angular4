@@ -6,11 +6,11 @@
     <form [formGroup]="suggestionForm" (ngSubmit)="saveSuggestion(nameInput,suggestionForm.value)" class="suggestion-form-title">
       <label for="name">Name</label>
       <input name="name" #nameInput type="text" (click)="selectAll(nameInput)" class="form-control" formControlName="name" />
-      <p *ngIf="!suggestionForm.controls['name'].valid && !suggestionForm.disabled" class="error">This field is required</p>
+      <p *ngIf="!suggestionForm.controls['name'].valid && !suggestionForm.disabled" class="error-text">This field is required</p>
       <label for="email">Email</label>
       <input name="email" #emailInput type="text" (click)="selectAll(emailInput)" class="form-control" formControlName="email"
       />
-      <p *ngIf="!suggestionForm.controls['email'].valid && !suggestionForm.disabled" class="error">This field is required</p>
+      <p *ngIf="!suggestionForm.controls['email'].valid && !suggestionForm.disabled" class="error-text">This field is required</p>
 
       <label for="updateMe">Contact me with updates?</label>
       <br/>
@@ -21,7 +21,7 @@
       <textarea rows="4" cols="50" name="message" id="message" type="text" class="form-control" formControlName="message" (keypress)="onEnter($event,nameInput,suggestionForm.value)">
     </textarea>
       <p *ngIf="!suggestionForm.controls['message'].valid && suggestionForm.controls['message'].touched &&  !suggestionForm.disabled"
-        class="error">This field is required, please enter a suggestion between 10 and 200 characters long.</p>
+        class="error-text">This field is required, please enter a suggestion between 10 and 200 characters long.</p>
 
       <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add Suggestion</button>
     </form>
